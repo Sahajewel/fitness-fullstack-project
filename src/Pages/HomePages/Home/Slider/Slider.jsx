@@ -30,7 +30,7 @@ const Carousel = () => {
             setCurrentSlide((prevSlide) =>
                 prevSlide === slides.length - 1 ? 0 : prevSlide + 1
             );
-        }, 3000); // Auto-slide every 3 seconds
+        }, 4000); // Auto-slide every 3 seconds
         return () => clearInterval(interval);
     }, [slides.length]);
 

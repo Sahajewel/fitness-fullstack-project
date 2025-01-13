@@ -6,7 +6,7 @@ const Featured = () => {
             title: "Personalized Training Plans",
             description:
                 "Get a fitness plan tailored to your unique goals, helping you stay on track and achieve real results.",
-            icon: "💪", // You can replace this with an image/icon
+            icon: "💪",
         },
         {
             title: "Expert Trainers",

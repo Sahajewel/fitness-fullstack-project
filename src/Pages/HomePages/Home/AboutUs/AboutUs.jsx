@@ -1,4 +1,4 @@
-import React from "react";
+import about from "../../../../assets/about.jpg"
 
 const AboutUs = () => {
     return (
@@ -6,7 +6,7 @@ const AboutUs = () => {
             <div className="container mx-auto flex flex-col items-center lg:flex-row lg:space-x-12">
                 <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
                     <img
-                        src="https://via.placeholder.com/600x400" // Replace with your image
+                        src={about} 
                         alt="Fitness Center"
                         className="w-full rounded-lg shadow-lg"
                     />
