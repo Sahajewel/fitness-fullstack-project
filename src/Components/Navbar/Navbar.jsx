@@ -5,16 +5,16 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
     // State to track whether the mobile menu is open or closed
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const {logout} = useContext(AuthContext)
+    const { logout, user } = useContext(AuthContext)
     // Function to toggle the mobile menu
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-    const handleLogout=()=>{
+    const handleLogout = () => {
         logout()
-        .then((result)=>{
-            console.log(result.user)
-        })
+            .then((result) => {
+                console.log(result.user)
+            })
     }
 
     return (
@@ -29,14 +29,23 @@ const Navbar = () => {
                 <div className="hidden md:flex space-x-8">
                     <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
                     <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
-                    
+
                 </div>
 
                 {/* Right side - Login/Register (Hidden on mobile) */}
                 <div className="hidden md:flex space-x-6">
-                    <NavLink to="/login" className="text-white text-lg bg-yellow-500 hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</NavLink>
-                    <NavLink to="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</NavLink>
-                    <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
+                    {user && user ? <div className='flex justify-center items-center'>
+                        <img className='w-20 rounded-full mr-2' src={user?.photoURL} alt="" />
+                        <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
+                    </div>
+                        :
+                        <div>
+                            <NavLink to="/login" className="text-white text-lg mr-2 bg-yellow-500 hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</NavLink>
+                            <NavLink to="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</NavLink>
+                        </div>
+                    }
+
+
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -54,9 +63,16 @@ const Navbar = () => {
                 <div className="md:hidden flex flex-col justify-center items-center bg-gradient-to-r from-purple-600 via-pink-800 to-red-800 m-10 p-6 space-y-4">
                     <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
                     <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
-                    <NavLink to="/login" className="text-white text-lg bg-yellow-500 hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</NavLink>
-                    <NavLink to="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</NavLink>
-                    <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
+                    {user && user ? <div className='flex justify-center  items-center'>
+                        <img className='w-20 rounded-full mr-2' src={user?.photoURL} alt="" />
+                        <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
+                    </div>
+                        :
+                        <div>
+                            <NavLink to="/login" className="text-white text-lg mr-2 bg-yellow-500 hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</NavLink>
+                            <NavLink to="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</NavLink>
+                        </div>
+                    }
                 </div>
             )}
         </nav>

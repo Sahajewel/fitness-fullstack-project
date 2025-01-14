@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 export default function Register() {
     const { signIn ,google } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -12,6 +13,13 @@ export default function Register() {
         google()
         .then((result)=>{
             console.log(result.user)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Succefully Login By Google",
+                showConfirmButton: false,
+                timer: 1500
+              });
             navigate(location?.state? location.state : "/")
         })
         
@@ -27,6 +35,13 @@ export default function Register() {
        signIn(data.email, data.password)
        .then((result)=>{
         console.log(result.user)
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Succefully Login",
+            showConfirmButton: false,
+            timer: 1500
+          });
         navigate(location?.state? location.state : "/")
        })
                 reset()
