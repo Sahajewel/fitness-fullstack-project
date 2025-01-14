@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from "../../assets/logo.jpg"
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
     // State to track whether the mobile menu is open or closed
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const {logout} = useContext(AuthContext)
     // Function to toggle the mobile menu
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    const handleLogout=()=>{
+        logout()
+        .then((result)=>{
+            console.log(result.user)
+        })
+    }
 
     return (
         <nav className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 p-4 shadow-lg">
@@ -19,16 +27,16 @@ const Navbar = () => {
 
                 {/* Middle - Menu (Hidden on mobile) */}
                 <div className="hidden md:flex space-x-8">
-                    <a href="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</a>
-                    <a href="/about" className="text-white text-lg hover:text-yellow-300 transition duration-300">About</a>
-                    <a href="/services" className="text-white text-lg hover:text-yellow-300 transition duration-300">Services</a>
-                    <a href="/contact" className="text-white text-lg hover:text-yellow-300 transition duration-300">Contact</a>
+                    <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
+                    <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
+                    
                 </div>
 
                 {/* Right side - Login/Register (Hidden on mobile) */}
                 <div className="hidden md:flex space-x-6">
-                    <a href="/login" className="text-white text-lg hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</a>
-                    <a href="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</a>
+                    <NavLink to="/login" className="text-white text-lg bg-yellow-500 hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</NavLink>
+                    <NavLink to="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</NavLink>
+                    <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -44,12 +52,11 @@ const Navbar = () => {
             {/* Mobile Menu - Show when 'isMenuOpen' is true */}
             {isMenuOpen && (
                 <div className="md:hidden flex flex-col justify-center items-center bg-gradient-to-r from-purple-600 via-pink-800 to-red-800 m-10 p-6 space-y-4">
-                    <a href="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</a>
-                    <a href="/about" className="text-white text-lg hover:text-yellow-300 transition duration-300">About</a>
-                    <a href="/services" className="text-white text-lg hover:text-yellow-300 transition duration-300">Services</a>
-                    <a href="/contact" className="text-white text-lg hover:text-yellow-300 transition duration-300">Contact</a>
-                    <a href="/login" className="text-white text-lg hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</a>
-                    <a href="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</a>
+                    <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
+                    <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
+                    <NavLink to="/login" className="text-white text-lg bg-yellow-500 hover:bg-yellow-400 hover:text-white py-2 px-4 rounded-full transition duration-300">Login</NavLink>
+                    <NavLink to="/register" className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Register</NavLink>
+                    <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
                 </div>
             )}
         </nav>
