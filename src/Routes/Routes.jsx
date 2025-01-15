@@ -6,6 +6,8 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Secret from "../Pages/Secret/Secret";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Pages/DashBoard/Dashboard/Dashboard";
+import AllNewsLettersSubscriber from "../Pages/DashBoard/AdminDashboard/AllNewsLettersSubscriber";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -30,5 +32,17 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: "/dashboard",
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+        {
+          path: "/dashboard/all-newsletter-subscriber",
+          element: <AllNewsLettersSubscriber></AllNewsLettersSubscriber>
+        }
+      ]
+    }
+    ,
+   
   ]);
 
