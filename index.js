@@ -22,7 +22,9 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
    const userCollection = client.db("fitnessDB").collection("users")
+   const newsletterCollection = client.db("fitnessDB").collection("newsLetter")
   
+  //  users collection
     app.post("/users", async(req, res)=>{
       const user = req.body;
       console.log(user)
@@ -32,6 +34,18 @@ async function run() {
         return res.send("already exist")
       }
       const result = await userCollection.insertOne(user)
+      res.send(result)
+    })
+
+    // newsletter collection
+
+    app.post("/newsletter", async(req, res)=>{
+      const news = req.body;
+      const result = await newsletterCollection.insertOne(news)
+      res.send(result)
+    })
+    app.get("/newsletter", async(req, res)=>{
+      const result = await newsletterCollection.find().toArray()
       res.send(result)
     })
   
