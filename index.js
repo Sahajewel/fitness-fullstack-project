@@ -4,11 +4,11 @@ const cors = require("cors");
 const app = express()
 const port = process.env.PORT || 5000;
 app.use(cors());
-app.use(express())
+app.use(express.json());
 
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.BD_PASS}@cluster0.r7awt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = "mongodb+srv://fitnessCenter:W9mEPP8mxzXO12y9@cluster0.r7awt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -21,8 +21,19 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    const bookingsCollection  = client.db("fitnessCenter").collection("bookings")
+   const userCollection = client.db("fitnessDB").collection("users")
   
+    app.post("/users", async(req, res)=>{
+      const user = req.body;
+      console.log(user)
+      const cursor = {email: user?.email}
+      const alreadyExist = await userCollection.findOne(cursor)
+      if(alreadyExist){
+        return res.send("already exist")
+      }
+      const result = await userCollection.insertOne(user)
+      res.send(result)
+    })
   
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
