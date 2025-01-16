@@ -8,6 +8,10 @@ import Secret from "../Pages/Secret/Secret";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Pages/DashBoard/Dashboard/Dashboard";
 import AllNewsLettersSubscriber from "../Pages/DashBoard/AdminDashboard/AllNewsLettersSubscriber";
+import AllTrainers from "../Pages/HomePages/AllTrainers/AllTrainers";
+import TrainerDetails from "../Pages/HomePages/AllTrainers/TrainerDetails";
+import TrainerBooked from "../Pages/TrainerBooked/TrainerBooked";
+import Payment from "../Pages/Payment/Payment";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -29,6 +33,25 @@ export const router = createBrowserRouter([
         {
           path: "/secret", 
           element: <PrivateRoute><Secret></Secret></PrivateRoute>
+        },
+        {
+          path: "/all-trainers",
+          element: <AllTrainers></AllTrainers>
+        },
+        {
+          path: "/trainer-details/:id",
+          element: <TrainerDetails></TrainerDetails>,
+          loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
+        },
+        {
+          path: "/trainer-booked/:id",
+          element: <TrainerBooked></TrainerBooked>,
+          loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
+        },
+        {
+          path: "/payment/:id",
+          element: <Payment></Payment>,
+          loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
         }
       ]
     },
