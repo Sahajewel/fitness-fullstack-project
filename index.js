@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://fitnessCenter:W9mEPP8mxzXO12y9@cluster0.r7awt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -23,6 +23,8 @@ async function run() {
   try {
    const userCollection = client.db("fitnessDB").collection("users")
    const newsletterCollection = client.db("fitnessDB").collection("newsLetter")
+   const allTrainersCollection = client.db("fitnessDB").collection("allTrainers")
+   const paymentCollection = client.db("fitnessDB").collection("payment")
   
   //  users collection
     app.post("/users", async(req, res)=>{
@@ -46,6 +48,26 @@ async function run() {
     })
     app.get("/newsletter", async(req, res)=>{
       const result = await newsletterCollection.find().toArray()
+      res.send(result)
+    })
+
+    // all trainers collection
+
+    app.get("/all-trainers", async(req, res)=>{
+      const result = await allTrainersCollection.find().toArray();
+      res.send(result)
+    })
+    app.get("/all-trainers/:id", async(req, res)=>{
+      const id = req.params.id;
+      const cursor = {_id: new ObjectId(id)}
+      const result = await allTrainersCollection.findOne(cursor);
+      res.send(result)
+    })
+
+    // payment collection
+    app.post("/payment", async(req, res)=>{
+      const cursor = req.body;
+      const result = await paymentCollection.insertOne(cursor)
       res.send(result)
     })
   
