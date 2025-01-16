@@ -1,5 +1,6 @@
 import { Card } from "flowbite-react";
 import { Link, useLoaderData } from 'react-router-dom'
+import BeATrainer from "../../BeATrainer/BeATrainer";
 export default function TrainerDetails() {
     const loader = useLoaderData()
     console.log(loader)
@@ -45,6 +46,7 @@ export default function TrainerDetails() {
                     </div>
                 </div>
             </div >
+            <BeATrainer></BeATrainer>
         </div>
 
 
