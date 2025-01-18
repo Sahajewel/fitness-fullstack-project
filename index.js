@@ -23,11 +23,12 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-   const userCollection = client.db("fitnessDB").collection("users")
-   const newsletterCollection = client.db("fitnessDB").collection("newsLetter")
-   const allTrainersCollection = client.db("fitnessDB").collection("allTrainers")
-   const paymentCollection = client.db("fitnessDB").collection("payment")
-   const becomeATrainerCollection = client.db("fitnessDB").collection("becomeATrainer")
+   const userCollection = client.db("fitnessDB").collection("users");
+   const newsletterCollection = client.db("fitnessDB").collection("newsLetter");
+   const allTrainersCollection = client.db("fitnessDB").collection("allTrainers");
+   const paymentCollection = client.db("fitnessDB").collection("payment");
+   const becomeATrainerCollection = client.db("fitnessDB").collection("becomeATrainer");
+   const addAClassCollection = client.db("fitnessDB").collection("addAClass");
   
   //  users collection
     app.post("/users", async(req, res)=>{
@@ -82,6 +83,24 @@ async function run() {
       res.send(result)
     })
   
+    app.get("/become-a-trainer", async(req, res)=>{
+      const result = await becomeATrainerCollection.find().toArray();
+      res.send(result)
+    })
+    app.get("/become-a-trainer/:id", async(req, res)=>{
+      const id = req.params.id;
+      const cursor = {_id: new ObjectId(id)};
+      const result = await becomeATrainerCollection.findOne(cursor);
+      res.send(result)
+    })
+
+    // add a class
+
+    app.post("/add-a-class", async(req, res)=>{
+      const AddClass = req.body;
+      const result = await addAClassCollection.insertOne(AddClass);
+      res.send(result)
+    })
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
     // Send a ping to confirm a successful connection
