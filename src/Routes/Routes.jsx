@@ -13,6 +13,7 @@ import TrainerDetails from "../Pages/HomePages/AllTrainers/TrainerDetails";
 import TrainerBooked from "../Pages/TrainerBooked/TrainerBooked";
 import Payment from "../Pages/Payment/Payment";
 import BecomeATrainer from "../Pages/BecomeATrainer/BecomeATrainer";
+import DashboardAllTrainers from "../Pages/DashBoard/Dashboard AllTrainers/DashboardAllTrainers";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/all-newsletter-subscriber",
           element: <AllNewsLettersSubscriber></AllNewsLettersSubscriber>
+        },
+        {
+          path: "/dashboard/all-trainers",
+          element: <DashboardAllTrainers></DashboardAllTrainers>
         }
       ]
     }
