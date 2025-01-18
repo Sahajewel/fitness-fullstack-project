@@ -3,7 +3,9 @@ const cors = require("cors");
 // require('dotenv').config();
 const app = express()
 const port = process.env.PORT || 5000;
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173"]
+}));
 app.use(express.json());
 
 
@@ -25,6 +27,7 @@ async function run() {
    const newsletterCollection = client.db("fitnessDB").collection("newsLetter")
    const allTrainersCollection = client.db("fitnessDB").collection("allTrainers")
    const paymentCollection = client.db("fitnessDB").collection("payment")
+   const becomeATrainerCollection = client.db("fitnessDB").collection("becomeATrainer")
   
   //  users collection
     app.post("/users", async(req, res)=>{
@@ -68,6 +71,14 @@ async function run() {
     app.post("/payment", async(req, res)=>{
       const cursor = req.body;
       const result = await paymentCollection.insertOne(cursor)
+      res.send(result)
+    })
+
+    // become a trainer
+    app.post("/become-a-trainer", async(req, res)=>{
+      const become = req.body;
+      console.log("become", become)
+      const result = await becomeATrainerCollection.insertOne(become);
       res.send(result)
     })
   
