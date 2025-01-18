@@ -14,6 +14,9 @@ import TrainerBooked from "../Pages/TrainerBooked/TrainerBooked";
 import Payment from "../Pages/Payment/Payment";
 import BecomeATrainer from "../Pages/BecomeATrainer/BecomeATrainer";
 import DashboardAllTrainers from "../Pages/DashBoard/Dashboard AllTrainers/DashboardAllTrainers";
+import AppliedTrainer from "../Pages/DashBoard/AppliedTrainer/AppliedTrainer";
+import AppliedTrainersDetails from "../Pages/DashBoard/AppliedTrainer/AppliedTrainersDetails";
+import AddANewClass from "../Pages/DashBoard/AddANewClass/AddANewClass";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -72,6 +75,19 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/all-trainers",
           element: <DashboardAllTrainers></DashboardAllTrainers>
+        },
+        {
+          path: "/dashboard/applied-trainers",
+          element: <AppliedTrainer></AppliedTrainer>
+        }, 
+        {
+          path: "/dashboard/applied-trainers-details/:id",
+          element: <AppliedTrainersDetails></AppliedTrainersDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/become-a-trainer/${params.id}`)
+        }, 
+        {
+          path: "add-a-new-class",
+          element: <AddANewClass></AddANewClass>
         }
       ]
     }

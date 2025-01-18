@@ -41,6 +41,7 @@ export default function BecomeATrainer() {
         }
         const res = await axiosSecure.post("/become-a-trainer",becomeATrainer)
         console.log(res.data)
+        
    
             Swal.fire({
                 position: "top-end",
@@ -91,7 +92,7 @@ export default function BecomeATrainer() {
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label className="text-white text-lg" value="Upload file" />
+                            <Label className="text-white text-lg" value="Upload Image" />
                         </div>
                         <FileInput {...register('image')} />
                     </div>
