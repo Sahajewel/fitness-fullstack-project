@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useParams } from 'react-router-dom'
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Button, Card } from 'flowbite-react';
 import UseAxiosSecure from '../../Hooks/UseAxiosSecure';
 import { useForm } from "react-hook-form"
 export default function Payment() {
     const payment = useLoaderData();
+    const {price} = useParams()
+    console.log(price)
     const axiosSecure = UseAxiosSecure()
     const { user } = useContext(AuthContext)
     const paymentInfo = {
@@ -35,6 +37,7 @@ export default function Payment() {
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                         Email: {user?.email}
                     </p>
+                    <p>{price}</p>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Button type='submit' className='w-full'>
                             Pay

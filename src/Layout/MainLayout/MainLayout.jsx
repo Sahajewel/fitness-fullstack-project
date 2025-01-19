@@ -9,8 +9,10 @@ export default function MainLayout() {
             <div>
                 <Navbar></Navbar>
             </div>
-            <div className="w-11/12 mx-auto min-h-[calc(100vh-447.25px)] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-                <Outlet></Outlet>
+            <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                <div className="w-11/12 mx-auto min-h-[calc(100vh-447.25px)] ">
+                    <Outlet></Outlet>
+                </div>
             </div>
             <div>
                 <Footer></Footer>

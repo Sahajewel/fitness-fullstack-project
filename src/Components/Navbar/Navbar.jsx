@@ -1,12 +1,36 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import logo from "../../assets/logo.jpg"
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import UseAdmin from '../../Hooks/UseAdmin';
+import UseTrainer from '../../Hooks/UseTrainer';
 const Navbar = () => {
     // State to track whether the mobile menu is open or closed
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { logout, user } = useContext(AuthContext)
-    // Function to toggle the mobile menu
+    // const [isAdmin] = UseAdmin();
+    // const [isTrainer] = UseTrainer();
+    // // // Function to toggle the mobile menu
+    // let content;
+
+    // useEffect(() => {
+    //     if (isAdmin) {
+    //         content = (
+    //             <NavLink to="/dashboard/all-newsletter-subscriber" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+    //         )
+    //     }
+    //     else if (isTrainer) {
+    //         content = (
+    //             <NavLink to="/dashboard/manage-slot" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+    //         )
+    //     }
+    //     else {
+    //         content = (
+    //             <NavLink to="/dashboard/profile" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+    //         )
+
+    //     }
+    // }, [content])
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -29,7 +53,10 @@ const Navbar = () => {
                 <div className="hidden md:flex space-x-8">
                     <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
                     <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
+
+                    
                     <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+                    
                     <NavLink to="/all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink>
 
                 </div>

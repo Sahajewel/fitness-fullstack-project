@@ -21,6 +21,8 @@ import ManageSlot from "../Pages/DashBoard/ManageSlot/ManageSlot";
 import ProfilePage from "../Pages/DashBoard/Dashboard/ProfilePage/ProfilePage";
 import AdminRoutes from "./AdminRoutes";
 import TrainerRoutes from "./TrainerRoutes";
+import AddNewForum from "../Pages/DashBoard/AddNewForum/AddNewForum";
+import Booked from "../Pages/TrainerBooked/Booked.jsx/Booked";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -53,12 +55,16 @@ export const router = createBrowserRouter([
           loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
         },
         {
-          path: "/trainer-booked/:id",
+          path: "/trainer-booked/:id/:slot",
           element: <TrainerBooked></TrainerBooked>,
           loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
         },
+      //   {
+      //     path: "/trainer-booked/:id/:slot",
+      //     element: <Booked></Booked>
+      // },
         {
-          path: "/payment/:id",
+          path: "/payment/:id/:price",
           element: <Payment></Payment>,
           loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
         },
@@ -87,7 +93,8 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/applied-trainers-details/:id",
           element: <AppliedTrainersDetails></AppliedTrainersDetails>,
-          loader:({params})=>fetch(`http://localhost:5000/become-a-trainer/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/become-a-trainer/${params.id}`),
+         
         }, 
         {
           path: "add-a-new-class",
@@ -100,6 +107,10 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/profile",
           element: <ProfilePage></ProfilePage>
+        },
+        {
+          path: "/dashboard/add-new-forum",
+          element: <AddNewForum></AddNewForum>
         }
       ]
     }

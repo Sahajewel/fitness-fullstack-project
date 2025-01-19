@@ -36,7 +36,7 @@ export default function TrainerDetails() {
                     <h1 className='text-center py-10 text-white text-2xl font-bold'>Available Slots</h1>
                     <div className="flex flex-col gap-2 mt-2 ">
                         {loader.availableSlots.map((slot, index) => (
-                            <Link key={index} className="px-4 py-2 border border-gray-300 rounded-md hover:bg-blue-500 text-sm text-white" to={`/trainer-booked/${loader._id}`}>  <button
+                            <Link key={index} className="px-4 py-2 border border-gray-300 rounded-md hover:bg-blue-500 text-sm text-white" to={`/trainer-booked/${loader._id}/${slot}`}>  <button
 
 
                             >

@@ -1,62 +1,41 @@
 import React from 'react'
 import UseAllTrainers from '../../../Hooks/UseAllTrainers'
-import { Table } from 'flowbite-react';
+import { Button, Table } from 'flowbite-react';
 
 export default function ManageSlot() {
     const [allTrainers] = UseAllTrainers();
-    const slots = allTrainers.map((trainer) => <li>{trainer.availableSlots})</li>)
+
     return (
-        <div className="overflow-x-auto">
-            <Table>
-                <Table.Head>
-                    <Table.HeadCell>Product name</Table.HeadCell>
-                    <Table.HeadCell>Color</Table.HeadCell>
-                    <Table.HeadCell>Category</Table.HeadCell>
-                    <Table.HeadCell>Price</Table.HeadCell>
-                    <Table.HeadCell>
-                        <span className="sr-only">Edit</span>
-                    </Table.HeadCell>
-                </Table.Head>
-                <Table.Body className="divide-y">
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            {'Apple MacBook Pro 17"'}
-                        </Table.Cell>
-                        <Table.Cell>{slots}</Table.Cell>
-                        <Table.Cell>Laptop</Table.Cell>
-                        <Table.Cell>$2999</Table.Cell>
-                        <Table.Cell>
-                            <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                                Edit
-                            </a>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Microsoft Surface Pro
-                        </Table.Cell>
-                        <Table.Cell>White</Table.Cell>
-                        <Table.Cell>Laptop PC</Table.Cell>
-                        <Table.Cell>$1999</Table.Cell>
-                        <Table.Cell>
-                            <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                                Edit
-                            </a>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</Table.Cell>
-                        <Table.Cell>Black</Table.Cell>
-                        <Table.Cell>Accessories</Table.Cell>
-                        <Table.Cell>$99</Table.Cell>
-                        <Table.Cell>
-                            <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                                Edit
-                            </a>
-                        </Table.Cell>
-                    </Table.Row>
-                </Table.Body>
-            </Table>
+        <div>
+            <h1 className='text-center py-10 text-black text-4xl font-bold'>Manage Slots</h1>
+            <div className="overflow-x-auto">
+                <Table>
+                    <Table.Head>
+                        <Table.HeadCell>Slots</Table.HeadCell>
+                        <Table.HeadCell className="text-left">Action</Table.HeadCell>
+                    </Table.Head>
+                    <Table.Body className="divide-y">
+                        {allTrainers.map((trainer, index) => (
+                            <Table.Row key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                <Table.Cell>
+                                    {trainer.availableSlots.map((slot, slotIndex) => (
+                                        <Button key={slotIndex} className="mb-2">
+                                            {slot}
+                                        </Button>
+                                    ))}
+                                </Table.Cell>
+                                <Table.Cell className="text-right">
+                                    {trainer.availableSlots.map((slot, slotIndex) => (
+                                        <Button key={slotIndex} className="mb-2">
+                                            Delete
+                                        </Button>
+                                    ))}
+                                </Table.Cell>
+                            </Table.Row>
+                        ))}
+                    </Table.Body>
+                </Table>
+            </div>
         </div>
     )
 }
