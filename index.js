@@ -31,6 +31,7 @@ async function run() {
    const paymentCollection = client.db("fitnessDB").collection("payment");
    const becomeATrainerCollection = client.db("fitnessDB").collection("becomeATrainer");
    const addAClassCollection = client.db("fitnessDB").collection("addAClass");
+   const addNewForumCollection = client.db("fitnessDB").collection("addNewForum");
 
 
   //  jwt collection
@@ -175,6 +176,17 @@ async function run() {
     app.post("/add-a-class",verifyToken, verifyAdmin, async(req, res)=>{
       const AddClass = req.body;
       const result = await addAClassCollection.insertOne(AddClass);
+      res.send(result)
+    })
+
+    // add new forum collection 
+    app.post("/add-new-forum", async(req, res)=>{
+      const newForum = req.body;
+      const result = await addNewForumCollection.insertOne(newForum);
+      res.send(result)
+    })
+    app.get("/add-new-forum", async(req, res)=>{
+      const result = await addNewForumCollection.find().toArray();
       res.send(result)
     })
     // Connect the client to the server	(optional starting in v4.7)
