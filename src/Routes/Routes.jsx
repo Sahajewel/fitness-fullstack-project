@@ -17,6 +17,10 @@ import DashboardAllTrainers from "../Pages/DashBoard/Dashboard AllTrainers/Dashb
 import AppliedTrainer from "../Pages/DashBoard/AppliedTrainer/AppliedTrainer";
 import AppliedTrainersDetails from "../Pages/DashBoard/AppliedTrainer/AppliedTrainersDetails";
 import AddANewClass from "../Pages/DashBoard/AddANewClass/AddANewClass";
+import ManageSlot from "../Pages/DashBoard/ManageSlot/ManageSlot";
+import ProfilePage from "../Pages/DashBoard/Dashboard/ProfilePage/ProfilePage";
+import AdminRoutes from "./AdminRoutes";
+import TrainerRoutes from "./TrainerRoutes";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -87,7 +91,15 @@ export const router = createBrowserRouter([
         }, 
         {
           path: "add-a-new-class",
-          element: <AddANewClass></AddANewClass>
+          element: <AdminRoutes><AddANewClass></AddANewClass></AdminRoutes>
+        },
+        {
+          path: "/dashboard/manage-slot",
+          element: <TrainerRoutes><ManageSlot></ManageSlot></TrainerRoutes>
+        }, 
+        {
+          path: "/dashboard/profile",
+          element: <ProfilePage></ProfilePage>
         }
       ]
     }

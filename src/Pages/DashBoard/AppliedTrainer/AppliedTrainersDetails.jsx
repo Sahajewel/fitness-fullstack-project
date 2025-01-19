@@ -3,6 +3,8 @@ import { useLoaderData } from 'react-router-dom'
 export default function AppliedTrainersDetails() {
     const applidTrainersDetails = useLoaderData();
     console.log(applidTrainersDetails)
+    const days1 = applidTrainersDetails?.day.map((days)=>days.label).join(", ");
+    const skills1 = applidTrainersDetails?.skills.map((skill)=>skill).join(", ")
     return (
         <div>
             <h1 className='text-center py-10 text-black text-4xl font-bold underline pt-10'>Applied Trainer Details</h1>
@@ -21,8 +23,8 @@ export default function AppliedTrainersDetails() {
                     </div>
                 </div>
                 <div className="px-4 py-2 border-t border-gray-200">
-                    <p className="text-gray-500 text-sm ">{applidTrainersDetails?.skills.map((skill, ind) => <li key={ind}>skills: {skill}</li>)}</p>
-                    <p className="text-gray-500 text-sm ">{applidTrainersDetails?.day.map((days, ind) => <li key={ind}>Available Days: {days.label}</li>)}</p>
+                    <p className="text-gray-500 text-sm ">Skills: {skills1}</p>
+                    <p className="text-gray-500 text-sm ">Available Day: {days1}</p>
                 </div>
                 <div className="px-4 py-2">
                     <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md mb-2">

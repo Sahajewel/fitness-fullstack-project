@@ -17,7 +17,8 @@ export default function Register() {
                 console.log(result.user)
                 const userInfo = {
                     name: result.user?.displayName,
-                    email: result.user?.email
+                    email: result.user?.email,
+                    image: result?.user?.photoURL
                 }
                 axiosPublic.post("/users", userInfo)
                 .then((res)=>{
@@ -50,6 +51,7 @@ export default function Register() {
                     const userProfile ={
                         name: data.name,
                         email: data.email,
+                        image: data.photo
                      }
                      axiosPublic.post("/users", userProfile)
                      .then((res)=>{
