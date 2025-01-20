@@ -23,6 +23,7 @@ import AdminRoutes from "./AdminRoutes";
 import TrainerRoutes from "./TrainerRoutes";
 import AddNewForum from "../Pages/DashBoard/AddNewForum/AddNewForum";
 import Booked from "../Pages/TrainerBooked/Booked.jsx/Booked";
+import Balance from "../Pages/DashBoard/Dashboard/Balance";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -59,12 +60,8 @@ export const router = createBrowserRouter([
           element: <TrainerBooked></TrainerBooked>,
           loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
         },
-      //   {
-      //     path: "/trainer-booked/:id/:slot",
-      //     element: <Booked></Booked>
-      // },
         {
-          path: "/payment/:id/:price",
+          path: "/payment/:id/:price/:name/:slot",
           element: <Payment></Payment>,
           loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
         },
@@ -111,6 +108,10 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/add-new-forum",
           element: <AddNewForum></AddNewForum>
+        },
+        {
+          path: "/dashboard/balance",
+          element: <Balance></Balance>
         }
       ]
     }

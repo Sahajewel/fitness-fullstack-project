@@ -18,6 +18,7 @@ export default function Dashboard() {
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/applied-trainers">Applied Trainers</NavLink>
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/add-a-new-class">Add A New Class</NavLink>
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/add-new-forum">Add New Forum</NavLink>
+                <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/balance">Balance</NavLink>
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/">Home</NavLink>
             </div>
         )
