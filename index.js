@@ -151,6 +151,10 @@ async function run() {
       const result = await paymentCollection.insertOne(cursor)
       res.send(result)
     })
+    app.get("/payment", async(req, res)=>{
+      const result = await paymentCollection.find().toArray();
+      res.send(result)
+    })
 
     // become a trainer
     app.post("/become-a-trainer", async(req, res)=>{
