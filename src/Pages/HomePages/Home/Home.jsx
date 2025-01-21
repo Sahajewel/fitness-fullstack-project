@@ -4,6 +4,8 @@ import Featured from './Featured/Featured'
 import AboutUs from './AboutUs/AboutUs'
 import NewsLetter from './NewsLetter/NewsLetter'
 import CommunityForum from '../../DashBoard/AddNewForum/CommunityForum'
+import Review from '../../DashBoard/Dashboard/Review/Review'
+
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
       <Featured></Featured>
       <AboutUs></AboutUs>
       <CommunityForum></CommunityForum>
+      <Review></Review>
       <NewsLetter></NewsLetter>
     </div>
   )

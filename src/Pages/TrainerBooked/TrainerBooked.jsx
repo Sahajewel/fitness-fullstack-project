@@ -74,6 +74,7 @@ export default function TrainerBooked() {
             </div>
             <div className="flex justify-center pb-5">
                 <Link to={`/payment/${booked._id}/${plan.price}/${plan.name}/${slot}`}  ><Button className="my-4" color="gray">Join Now</Button></Link>
+                
             </div>
         </div>
     )

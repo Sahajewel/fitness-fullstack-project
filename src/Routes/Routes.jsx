@@ -24,6 +24,7 @@ import TrainerRoutes from "./TrainerRoutes";
 import AddNewForum from "../Pages/DashBoard/AddNewForum/AddNewForum";
 import Booked from "../Pages/TrainerBooked/Booked.jsx/Booked";
 import Balance from "../Pages/DashBoard/Dashboard/Balance";
+import BookedTrainer from "../Pages/DashBoard/Dashboard/BookedTrainer/BookedTrainer";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -112,6 +113,10 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/balance",
           element: <Balance></Balance>
+        },
+        {
+          path: "/dashboard/booked-trainer",
+          element: <BookedTrainer></BookedTrainer>
         }
       ]
     }
