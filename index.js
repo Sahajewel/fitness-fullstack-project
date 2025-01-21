@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const jwt = require("jsonwebtoken")
 require('dotenv').config();
+const stripe = require("stripe")(process.env.STRIPE_AOI_KEY)
 const app = express()
 const port = process.env.PORT || 5000;
 app.use(cors({
@@ -12,6 +13,7 @@ app.use(express.json());
 
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { default: Stripe } = require("stripe");
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.BD_PASS}@cluster0.r7awt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -32,6 +34,7 @@ async function run() {
    const becomeATrainerCollection = client.db("fitnessDB").collection("becomeATrainer");
    const addAClassCollection = client.db("fitnessDB").collection("addAClass");
    const addNewForumCollection = client.db("fitnessDB").collection("addNewForum");
+   const reviewCollection = client.db("fitnessDB").collection("review");
 
 
   //  jwt collection
@@ -152,8 +155,27 @@ async function run() {
       res.send(result)
     })
     app.get("/payment", async(req, res)=>{
-      const result = await paymentCollection.find().toArray();
+      const email = req.query.email;
+      const query = {email: email}
+      const result = await paymentCollection.find(query).toArray();
       res.send(result)
+    })
+
+    // stripe secret
+    app.post("/create-checkout-session", async(req, res)=>{
+      const {price} = req.body;
+      const amount = parseInt(price * 100);
+      console.log(amount, "inside amount")
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: amount,
+        currency: "usd",
+        payment_method_types: [
+          "card"
+        ]
+      })
+      res.send({
+        clientSecret: paymentIntent.client_secret
+      })
     })
 
     // become a trainer
@@ -191,6 +213,17 @@ async function run() {
     })
     app.get("/add-new-forum", async(req, res)=>{
       const result = await addNewForumCollection.find().toArray();
+      res.send(result)
+    })
+
+    // review collection
+    app.post("/review", async(req, res)=>{
+      const review = req.body;
+      const result = await reviewCollection.insertOne(review);
+      res.send(result)
+    })
+    app.get("/review", async(req, res)=>{
+      const result = await reviewCollection.find().toArray();
       res.send(result)
     })
     // Connect the client to the server	(optional starting in v4.7)
