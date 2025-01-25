@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken")
 require('dotenv').config();
 const stripe = require("stripe")(process.env.STRIPE_AOI_KEY)
 const app = express()
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.use(cors({
   origin: ["http://localhost:5173", "https://clever-entremet-18d091.netlify.app"]
 }));
@@ -35,6 +35,8 @@ async function run() {
    const addAClassCollection = client.db("fitnessDB").collection("addAClass");
    const addNewForumCollection = client.db("fitnessDB").collection("addNewForum");
    const reviewCollection = client.db("fitnessDB").collection("review");
+   const historyCollection = client.db("fitnessDB").collection("history");
+   const rejectCollection = client.db("fitnessDB").collection("reject");
 
 
   //  jwt collection
@@ -82,6 +84,27 @@ async function run() {
       const result = await userCollection.insertOne(user)
       res.send(result)
     })
+    app.get("/users", async(req, res)=>{
+ 
+      const result = await userCollection.find().toArray();
+      res.send(result)
+    })
+    app.patch("/users/trainer/:id", async(req, res)=>{
+      const id = req.params.id;
+      const user = req.body;
+      const filter = {_id: new ObjectId(id)};
+      const updateDoc = {
+        $set:{
+          role: "trainer"
+        }
+      }
+     
+      const result = await userCollection.updateOne(filter,updateDoc);
+     if(user?.role === "trainer"){
+      var dlt = await becomeATrainerCollection.deleteOne(id)
+     }
+      res.send({result, dlt});
+    })
     app.get("/users/admin/:email", verifyToken, async(req, res)=>{
       const email = req.params.email;
       if(email !== req?.decoded?.email){
@@ -106,22 +129,23 @@ async function run() {
       if(user){
         trainer = user?.role === "trainer"
       }
+     
       res.send(trainer)
 
     })
-    app.patch("/users", async(req, res)=>{
-      const {email, name, image} = req.body;
-        const query = {email};
-        const updteDoc = {
-             $set: {
-              name,
-              image
-             }
-        }
-        const result = await userCollection.updateOne(query, updteDoc)
-        res.send(result)
+    // app.patch("/users", async(req, res)=>{
+    //   const {email, name, image} = req.body;
+    //     const query = {email};
+    //     const updteDoc = {
+    //          $set: {
+    //           name,
+    //           image
+    //          }
+    //     }
+    //     const result = await userCollection.updateOne(query, updteDoc)
+    //     res.send(result)
 
-    })
+    // })
 
     // newsletter collection
 
@@ -147,6 +171,12 @@ async function run() {
       const result = await allTrainersCollection.findOne(cursor);
       res.send(result)
     })
+    app.delete("/all-trainer/:id", async (req, res)=>{
+      const id = req.params.id;
+      const cursor = {_id: new ObjectId(id)};
+      const result = await allTrainersCollection.deleteOne(cursor);
+      res.send(result)
+    })
 
     // payment collection
     app.post("/payment", async(req, res)=>{
@@ -160,6 +190,21 @@ async function run() {
       const result = await paymentCollection.find(query).toArray();
       res.send(result)
     })
+    app.post("/history", async(req, res)=>{
+      const history = req.body;
+      const result = await historyCollection.insertOne(history)
+      res.send(result)
+    })
+app.get("/history", async(req, res)=>{
+  const email = req.query.email;
+  const query = {email: email}
+  const result = await historyCollection.find(query).sort({_id:-1}).limit(6).toArray()
+  res.send(result)
+})
+app.get("/histo", async (req, res)=>{
+  const result = await historyCollection.find().sort({_id:-1}).limit(6).toArray()
+  res.send(result)
+})
 
     // stripe secret
     app.post("/create-checkout-session", async(req, res)=>{
@@ -212,18 +257,57 @@ async function run() {
       res.send(result)
     })
     app.get("/add-new-forum", async(req, res)=>{
-      const result = await addNewForumCollection.find().toArray();
+      const result = await addNewForumCollection.find().sort({_id:-1}).limit(6).toArray();
       res.send(result)
     })
 
     // review collection
-    app.post("/review", async(req, res)=>{
-      const review = req.body;
-      const result = await reviewCollection.insertOne(review);
-      res.send(result)
-    })
-    app.get("/review", async(req, res)=>{
-      const result = await reviewCollection.find().toArray();
+    // app.post("/review", async(req, res)=>{
+    //   const review = req.body;
+    //   const result = await reviewCollection.insertOne(review);
+    //   res.send(result)
+    // })
+
+     // app.get("/review", async(req, res)=>{
+    //   const result = await reviewCollection.find().toArray();
+    //   res.send(result)
+    // })
+
+    app.post("/review", async (req, res) => {
+      try {
+        const { name, email, text, rating } = req.body;
+    
+        if (!name || !email || !text || typeof rating !== "number") {
+          return res.status(400).send({ error: "All fields are required, including a valid rating." });
+        }
+    
+        if (rating < 1 || rating > 5) {
+          return res.status(400).send({ error: "Rating must be between 1 and 5." });
+        }
+    
+        const newReview = { name, email, text, rating, createdAt: new Date() };
+        const result = await reviewCollection.insertOne(newReview);
+    
+        res.send({ success: true, message: "Review added successfully", result });
+      } catch (error) {
+        console.error("Error adding review:", error);
+        res.status(500).send({ error: "Failed to add review" });
+      }
+    });
+    app.get("/review", async (req, res) => {
+      try {
+        const result = await reviewCollection.find().toArray();
+        res.send(result);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+        res.status(500).send({ error: "Failed to fetch reviews" });
+      }
+    });
+   
+    // reject collection
+    app.post("/reject", async (req, res)=>{
+      const reject = req.body;
+      const result = await rejectCollection.insertOne(reject);
       res.send(result)
     })
     // Connect the client to the server	(optional starting in v4.7)
