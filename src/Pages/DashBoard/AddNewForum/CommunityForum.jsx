@@ -1,6 +1,8 @@
 import React from 'react'
 import useAxiosPublic from '../../../Hooks/useAxiosPublic'
 import UseForymCommunity from '../../../Hooks/UseForymCommunity';
+import Voting from '../../HomePages/Voting/Voting';
+import Home from '../../HomePages/Home/Home';
 
 export default function CommunityForum() {
     const axiosPublic = useAxiosPublic();
@@ -42,6 +44,10 @@ export default function CommunityForum() {
                     </div>
                 ))}
             </div>
+            {/* {
+                <Home></Home>? <CommunityForum></CommunityForum> : <communityForum></communityForum> && <Voting></Voting>
+            } */}
+           <Voting></Voting>
         </div>
     )
 }

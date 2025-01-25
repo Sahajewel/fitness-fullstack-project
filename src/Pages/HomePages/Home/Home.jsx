@@ -5,6 +5,7 @@ import AboutUs from './AboutUs/AboutUs'
 import NewsLetter from './NewsLetter/NewsLetter'
 import CommunityForum from '../../DashBoard/AddNewForum/CommunityForum'
 import Review from '../../DashBoard/Dashboard/Review/Review'
+import TeamSection from '../TeamSection/TeamSection'
 
 
 export default function Home() {
@@ -13,9 +14,10 @@ export default function Home() {
       <Carousel></Carousel>
       <Featured></Featured>
       <AboutUs></AboutUs>
-      <CommunityForum></CommunityForum>
       <Review></Review>
+      <CommunityForum></CommunityForum>
       <NewsLetter></NewsLetter>
+      <TeamSection></TeamSection>
     </div>
   )
 }

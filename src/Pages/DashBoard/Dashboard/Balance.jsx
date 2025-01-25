@@ -6,6 +6,7 @@ import UseNewsletter from '../../../Hooks/UseNewsletter';
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 export default function Balance() {
     const [payments] = UsePayment();
+    console.log(payments)
     const [newsLetter] = UseNewsletter();
     const totalPrice = payments.reduce((previus, current) => previus + current.price, 0);
     const TriangleBar = (props) => {

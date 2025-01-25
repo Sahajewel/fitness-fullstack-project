@@ -4,7 +4,6 @@ import Error from "../Pages/ErrorPages/Error";
 import Home from "../Pages/HomePages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
-import Secret from "../Pages/Secret/Secret";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Pages/DashBoard/Dashboard/Dashboard";
 import AllNewsLettersSubscriber from "../Pages/DashBoard/AdminDashboard/AllNewsLettersSubscriber";
@@ -22,9 +21,10 @@ import ProfilePage from "../Pages/DashBoard/Dashboard/ProfilePage/ProfilePage";
 import AdminRoutes from "./AdminRoutes";
 import TrainerRoutes from "./TrainerRoutes";
 import AddNewForum from "../Pages/DashBoard/AddNewForum/AddNewForum";
-import Booked from "../Pages/TrainerBooked/Booked.jsx/Booked";
 import Balance from "../Pages/DashBoard/Dashboard/Balance";
 import BookedTrainer from "../Pages/DashBoard/Dashboard/BookedTrainer/BookedTrainer";
+import Classes from "../Pages/HomePages/AllClasses";
+import CommunityForum from "../Pages/DashBoard/AddNewForum/CommunityForum";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -44,31 +44,35 @@ export const router = createBrowserRouter([
           element: <Login></Login>
         }, 
         {
-          path: "/secret", 
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>
-        },
-        {
           path: "/all-trainers",
           element: <AllTrainers></AllTrainers>
         },
         {
           path: "/trainer-details/:id",
           element: <TrainerDetails></TrainerDetails>,
-          loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
+          loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
         },
         {
           path: "/trainer-booked/:id/:slot",
           element: <TrainerBooked></TrainerBooked>,
-          loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
+          loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
         },
         {
           path: "/payment/:id/:price/:name/:slot",
           element: <Payment></Payment>,
-          loader: ({params})=>fetch(`http://localhost:5000/all-trainers/${params.id}`)
+          loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
         },
         {
           path: "/become-a-trainer",
           element: <BecomeATrainer></BecomeATrainer>
+        },
+        {
+          path: "/all-classes",
+          element: <Classes></Classes>
+        },
+        {
+          path: "/community-forum",
+          element: <CommunityForum></CommunityForum>
         }
       ]
     },
@@ -91,7 +95,7 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/applied-trainers-details/:id",
           element: <AppliedTrainersDetails></AppliedTrainersDetails>,
-          loader:({params})=>fetch(`http://localhost:5000/become-a-trainer/${params.id}`),
+          loader:({params})=>fetch(`http://localhost:5001/become-a-trainer/${params.id}`),
          
         }, 
         {

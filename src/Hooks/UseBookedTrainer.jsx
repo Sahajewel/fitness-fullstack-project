@@ -10,7 +10,7 @@ export default function UseBookedTrainer() {
     queryKey: ["bookedTrainer", user?.email],
     enabled: !!user?.email,
     queryFn: async()=>{
-        const res = await axiosPublic.get(`/payment?email=${user?.email}`)
+        const res = await axiosPublic.get(`/history?email=${user?.email}`)
         return res.data
     }
  })

@@ -18,7 +18,7 @@ export default function TrainerBooked() {
                     <div className="flex flex-col gap-2 mt-4 mb-4">
                         <h1><span className="font-bold">Slot:</span> {slot}</h1>
                     </div>
-                    <p><span className='font-bold mb-2'>Class Name:</span> {booked.trainerClasses.map((classes, ind) => <li key={ind}>{classes.className}</li>)}</p>
+                    <p><span className='font-bold mb-2'>Class Name:</span> {booked.trainerClasses?.map((classes, ind) => <li key={ind}>{classes.className}</li>)}</p>
 
                 </div>
                 <p className="md:flex  gap-10 my-10 ">{booked.packages.map((packag, ind) => <Card key={ind} className='max-w-sm'>
@@ -58,24 +58,79 @@ export default function TrainerBooked() {
                                 />
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                                {packag.details.map((detail, ind) => <li key={ind}>{detail}</li>)}
+                                {packag.details?.map((detail, ind) => <li key={ind}>{detail}</li>)}
                             </span>
                         </li>
                     </ul>
+
+
+{/* 
                     <button onClick={() => setPlan({ price: packag.price, name: packag.packageName })}
                         type="button"
                         className="inline-flex w-full justify-center rounded-lg bg-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900"
                     >
                         Choose plan
-                    </button>
+                    </button> */}
+                    {/* {
+                        plan.name ? (
+                            <Link to={`/payment/${booked._id}/${plan.price}/${plan.name}/${slot}`}  ><Button className="my-4" color="gray">Join Now</Button></Link>
+                        )
+                            :
+                            <button onClick={() => setPlan({ price: packag.price, name: packag.packageName })}
+                                type="button"
+                                className="inline-flex w-full justify-center rounded-lg bg-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900"
+                            >
+                                Choose plan
+                            </button>
+                    } */}
+                    <Button
+                        color="blue"
+                        onClick={() => setPlan({ price: packag.price, name: packag.packageName })} // Example for Basic Plan
+                    >
+                        Choose Plan
+                    </Button>
+
 
                 </Card>)}</p>
 
             </div>
-            <div className="flex justify-center pb-5">
+            {/* <div className="flex justify-center pb-5">
                 <Link to={`/payment/${booked._id}/${plan.price}/${plan.name}/${slot}`}  ><Button className="my-4" color="gray">Join Now</Button></Link>
-                
+
+             </div> */}
+            {/* <Button
+                        className="my-4"
+                        color="gray"
+                        onClick={() => {
+                            if (!plan.name) {
+                                alert('Please select a plan before proceeding!');
+                            } else {
+                                // Redirect to the payment route manually
+                                window.location.href = `/payment/${booked._id}/${plan.price}/${plan.name}/${slot}`;
+                            }
+                        }}
+                    >
+                        Join Now
+                    </Button> */}
+            <div className="flex gap-4 mx-auto justify-center pb-10 ">
+                {/* Choose Plan Button */}
+
+                {/* Join Now Button */}
+                <Button
+                    color="gray"
+                    onClick={() => {
+                        if (!plan.name) {
+                            alert('Please select a plan before proceeding!');
+                        } else {
+                            // Redirect to the payment route manually
+                            window.location.href = `/payment/${booked._id}/${plan.price}/${plan.name}/${slot}`;
+                        }
+                    }}
+                >
+                    Join Now
+                </Button>
             </div>
+
         </div>
     )
 }

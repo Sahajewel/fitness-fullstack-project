@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import logo from "../../assets/logo.jpg"
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import UseAdmin from '../../Hooks/UseAdmin';
 import UseTrainer from '../../Hooks/UseTrainer';
+import CommunityForum from '../../Pages/DashBoard/AddNewForum/CommunityForum';
+import Voting from '../../Pages/HomePages/Voting/Voting';
 const Navbar = () => {
     // State to track whether the mobile menu is open or closed
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { logout, user } = useContext(AuthContext)
+    const { logout, user } = useContext(AuthContext);
+    const navigate = useNavigate()
     // const [isAdmin] = UseAdmin();
     // const [isTrainer] = UseTrainer();
     // // // Function to toggle the mobile menu
@@ -31,6 +34,16 @@ const Navbar = () => {
 
     //     }
     // }, [content])
+    const handleDashboardClick = () => {
+        if (user?.role === "admin") {
+          navigate("/dashboard/all-newsletter-subscriber");
+        } else if (user?.role === "trainer") {
+          navigate("/dashboard/manage-slot");
+        }
+        else {
+            navigate("/dashboard/profile")
+        }
+      };
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -44,21 +57,19 @@ const Navbar = () => {
     return (
         <nav className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 p-4 shadow-lg">
             <div className="container mx-auto flex justify-between items-center">
-                {/* Left side - Logo */}
+
                 <div className="text-white text-3xl font-semibold tracking-wide hover:text-gray-200 transition duration-300">
                     <a href="/"><img className='w-32 rounded-full h-32' src={logo} alt="This is logo" /></a>
                 </div>
 
-                {/* Middle - Menu (Hidden on mobile) */}
                 <div className="hidden md:flex space-x-8">
                     <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
-                    <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
-
-                    
-                    <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
-                    
                     <NavLink to="/all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink>
-
+                    <NavLink to="/all-classes" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Classes</NavLink>
+                    {/* <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink> */}
+                    <NavLink onClick={handleDashboardClick} className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+                    <NavLink to="/community-forum"  className="text-white text-lg hover:text-yellow-300 transition duration-300">Community</NavLink>
+                 
                 </div>
 
                 {/* Right side - Login/Register (Hidden on mobile) */}

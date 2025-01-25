@@ -44,8 +44,8 @@ export default function Dashboard() {
 
     return (
         <div className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
-            <div className='w-10/12 mx-auto md:flex'>
-                <div className='w-96 md:min-h-screen bg-gray-400 '>
+            <div className=' mx-auto md:flex'>
+                <div className='md:w-96 md:min-h-screen bg-gray-400 '>
                     {content}
                 </div>
                 <div className='p-10 w-full '>

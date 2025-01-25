@@ -40,7 +40,9 @@ export default function Payment() {
             showConfirmButton: false,
             timer: 1500
         });
-    }
+    
+   
+}
     return (
         <div className='pb-20'>
             <h1 className='text-center py-10 text-white text-4xl font-bold'>Payment Details</h1>
@@ -61,23 +63,11 @@ export default function Payment() {
                     <p>Price: ${price}</p>
                     <p>Slot: {slot}</p>
                     <p>Package: {name}</p>
-
+                     
                 </Card>
             </div>
             <div className='bg-white mx-auto  p-20 '>
-                <StripePayment></StripePayment>
-                <form className='mt-8' onSubmit={handleSubmit(onSubmit)}>
-                    <Button type='submit' className=''>
-                        Pay
-                        <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                fillRule="evenodd"
-                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </Button>
-                </form>
+                <StripePayment price={price} slot={slot} classes={classes} trainer={payment.name} payment={payment}></StripePayment>
             </div>
            
         </div>

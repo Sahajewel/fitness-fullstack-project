@@ -7,7 +7,7 @@ export default function AppliedTrainer() {
   const [appliedTrainer] = UseAppliedTrainer()
   return (
     <div>
-      <h1 className='text-center py-10 text-black text-4xl font-bold underline mt-10'>Applied Trainers:  {appliedTrainer.length}</h1>
+      <h1 className='text-center py-10 text-white text-4xl font-bold underline mt-10'>Applied Trainers:  {appliedTrainer.length}</h1>
       <div className="overflow-x-auto">
         <Table>
           <Table.Head>

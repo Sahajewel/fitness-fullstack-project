@@ -4,27 +4,50 @@ import React, { useContext, useEffect, useState } from 'react'
 import UsePayment from '../../Hooks/UsePayment';
 import { AuthContext } from '../../Provider/AuthProvider';
 import UseAxiosSecure from '../../Hooks/UseAxiosSecure';
+import Swal from 'sweetalert2';
 
-export default function CheckOutForm() {
+export default function CheckOutForm({ price, slot, classes,payment }) {
+    console.log(payment)
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState("");
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [clientSecret, setClientSecret] = useState("");
-    const [transactionId, setTransactionId] = useState("")
+    const [transactionId, setTransactionId] = useState("");
+    const [isCardComplete, setIsCardComplete] = useState(false);
     const axiosSecure = UseAxiosSecure()
-const [payments] = UsePayment()
-console.log(payments)
-const totalPrice = payments.reduce((prev, current)=>prev + current.price, 0)
-if(totalPrice > 0){
-    useEffect(()=>{
-        axiosSecure.post("/create-checkout-session", {price: totalPrice})
-        .then((res)=>{
-            console.log(res.data.clientSecret)
-            setClientSecret(res.data.clientSecret)
-        })
-    }, [axiosSecure, totalPrice])
-}
+    const [payments] = UsePayment()
+    console.log(payments)
+    const totalPrice = payments.reduce((prev, current) => prev + current.price, 0)
+
+    const paymentInfo = {
+        payment: payment.name,
+        classes: classes,
+        name: user?.displayName,
+        email: user?.email,
+        price: parseFloat(price),
+        slot: slot
+
+    }
+
+    useEffect(() => {
+        if (totalPrice > 0) {
+            axiosSecure.post("/create-checkout-session", { price: price })
+                .then((res) => {
+                    console.log(res.data.clientSecret);
+                    setClientSecret(res.data.clientSecret);
+                })
+                .catch((error) => {
+                    console.error("Error creating checkout session:", error);
+                });
+        }
+    }, [axiosSecure, totalPrice]);
+
+
+    const handleCardChange = (event) => {
+        setError(event.error ? event.error.message : ""); // Set error message if any
+        setIsCardComplete(event.complete); // Update card completion state
+    };
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!stripe || !elements) {
@@ -46,7 +69,7 @@ if(totalPrice > 0){
             console.log("payment", paymentMethod)
             setError("")
         }
-        const {paymentIntent, error: cofirmError} = await stripe.confirmCardPayment(clientSecret, {
+        const { paymentIntent, error: cofirmError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
                 billing_details: {
@@ -55,16 +78,25 @@ if(totalPrice > 0){
                 }
             }
         })
-        if(cofirmError){
+        if (cofirmError) {
             console.log("confirm error", cofirmError)
         }
-        else{
+        else {
             console.log("payment intent", paymentIntent)
-            if(paymentIntent.status === "succeeded"){
+            if (paymentIntent.status === "succeeded") {
                 console.log(paymentIntent.id)
                 setTransactionId(paymentIntent.id)
             }
         }
+        const res = await axiosSecure.post("/history", paymentInfo)
+        console.log(res.data)
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Payment Successfully",
+            showConfirmButton: false,
+            timer: 1500
+        });
 
     }
     return (
@@ -85,8 +117,9 @@ if(totalPrice > 0){
                             },
                         },
                     }}
+                    onChange={handleCardChange} 
                 />
-                <button className=' bg-blue-600 mt-8 px-4 py-2 text-white' type="submit" disabled={!stripe || !clientSecret}>
+                <button className=' bg-blue-600 mt-8 px-4 py-2 text-white' type="submit" disabled={!stripe || !clientSecret || !isCardComplete}>
                     Pay
                 </button>
                 <p className='text-red-500 mt-2'>{error}</p>

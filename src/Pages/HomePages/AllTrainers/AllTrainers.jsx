@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import UseAllTrainers from '../../../Hooks/UseAllTrainers'
 import AllTrainersCard from './AllTrainersCard'
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 export default function AllTrainers() {
-    const [allTrainers] = UseAllTrainers()
+    const [allTrainers] = UseAllTrainers();
+    const {user} = useContext(AuthContext)
     return (
         <div>
             <h1 className='text-center py-10 text-white text-4xl font-bold'>all trainers: {allTrainers.length}</h1>
