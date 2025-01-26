@@ -18,7 +18,7 @@ export default function ActivityLog() {
     const { data: rejects = [] } = useQuery({
         queryKey: ["rejects", user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get("http://localhost:5001/reject")
+            const res = await axiosPublic.get("https://assignment-12-server-black-kappa.vercel.app/reject")
             console.log(res.data)
             return res.data
         }

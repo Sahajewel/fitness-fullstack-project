@@ -27,6 +27,8 @@ import Classes from "../Pages/HomePages/AllClasses";
 import CommunityForum from "../Pages/DashBoard/AddNewForum/CommunityForum";
 import DefaultDashboard from "../Pages/DashBoard/Dashboard/DefaultDashboard";
 import ActivityLog from "../Pages/DashBoard/ActivityLog/ActivityLog";
+import AboutUs from "../Pages/HomePages/Home/AboutUs/AboutUs";
+import Contact from "../Pages/HomePages/Contact/Contact";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -52,17 +54,17 @@ export const router = createBrowserRouter([
         {
           path: "/trainer-details/:id",
           element: <TrainerDetails></TrainerDetails>,
-          loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
+          loader: ({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
         },
         {
           path: "/trainer-booked/:id/:slot",
           element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
+          loader: ({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
         },
         {
           path: "/payment/:id/:price/:name/:slot",
           element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
+          loader: ({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
         },
         {
           path: "/become-a-trainer",
@@ -75,6 +77,14 @@ export const router = createBrowserRouter([
         {
           path: "/community-forum",
           element: <CommunityForum></CommunityForum>
+        },
+        {
+          path: "/about-us",
+          element: <AboutUs></AboutUs>
+        },
+        {
+          path: "/contact",
+          element: <Contact></Contact>
         }
       ]
     },
@@ -101,7 +111,7 @@ export const router = createBrowserRouter([
         {
           path: "/dashboard/applied-trainers-details/:id",
           element: <AdminRoutes><AppliedTrainersDetails></AppliedTrainersDetails></AdminRoutes>,
-          loader:({params})=>fetch(`http://localhost:5001/become-a-trainer/${params.id}`),
+          loader:({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/become-a-trainer/${params.id}`),
          
         }, 
         {

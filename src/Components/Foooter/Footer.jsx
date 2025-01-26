@@ -28,20 +28,13 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="/about"
+                                    href="/about-us"
                                     className="hover:text-yellow-300 transition duration-300"
                                 >
                                     About
                                 </a>
                             </li>
-                            <li>
-                                <a
-                                    href="/services"
-                                    className="hover:text-yellow-300 transition duration-300"
-                                >
-                                    Services
-                                </a>
-                            </li>
+                           
                             <li>
                                 <a
                                     href="/contact"
@@ -95,7 +88,7 @@ const Footer = () => {
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="h-6 w-6 "
                                     fill="currentColor"
                                     viewBox="0 0 24 24"
                                 >
