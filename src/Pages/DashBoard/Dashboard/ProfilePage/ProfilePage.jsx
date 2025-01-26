@@ -1,29 +1,72 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../../../Provider/AuthProvider'
 import { Button, FileInput, Label, Modal, TextInput } from 'flowbite-react'
 import { useForm } from 'react-hook-form';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
-
+import UseAxiosSecure from '../../../../Hooks/UseAxiosSecure';
+import Swal from 'sweetalert2';
+const imageBB = import.meta.env.VITE_IMG_BB_API;
+const sentToBB = `https://api.imgbb.com/1/upload?key=${imageBB}`;
 export default function ProfilePage() {
     const { user } = useContext(AuthContext);
     const [openModal, setOpenModal] = useState(false);
     const [email, setEmail] = useState('');
     const axiosPublic = useAxiosPublic()
+    const axiosSecure = UseAxiosSecure()
     const {
         register,
         handleSubmit,
     } = useForm()
 
-    const onSubmit = async(data) => {
+
+
+
+    const onSubmit = async (data) => {
+        const imageFile = { image: data.image[0] }
+        const response = await axiosPublic.post(sentToBB, imageFile, {
+            headers: {
+                "content-type": "multipart/form-data"
+            }
+        })
+        console.log(response.data)
         console.log(data)
         const userInfo = {
             name: data.name,
-            image: data.image
+            image: response.data.data.display_url,
+            email: user?.email
         }
-        const res = await axiosPublic.patch("/users", userInfo)
+        const savedUser = JSON.parse(localStorage.getItem('user'));
+
+       
+        const res = await axiosPublic.put("/users", userInfo)
         console.log(res.data)
+         Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Profile updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+        if (res.data.modifiedCount > 0) {
+            user.displayName = data.name;
+            user.photoURL = response.data.data.display_url
+            localStorage.setItem('user', JSON.stringify(user));
+            return { name: data.name, image: response.data.data.display_url };
+        }
+        if (savedUser) {
+            // If user data exists, update the user object
+            user.displayName = savedUser.displayName;
+            user.photoURL = savedUser.photoURL;
+        }
+        const respo = await axiosPublic.get("/users");
+        if (res.data) {
+            user.displayName = respo.data.name;
+            user.photoURL = respo.data.image;
+        }
+
 
     }
+
 
     function onCloseModal() {
         setOpenModal(false);
@@ -31,10 +74,15 @@ export default function ProfilePage() {
     }
     return (
         <div className='flex flex-col mx-auto items-center justify-center'>
-            <h1>Name: {user?.displayName}</h1>
-            <img className='h-40 w-40 rounded-full' src={user?.photoURL} alt="" />
-            <p className='mb-2'>Email: {user?.email}</p>
-            <Button onClick={() => setOpenModal(true)}>Edit Profile</Button>
+            <h1 className='mb-4 text-white font-bold text-4xl'>Profile</h1>
+            <div className='bg-gray-400 p-10'>
+                <h1 className='text-white text-center mb-3'>Name: {user?.displayName}</h1>
+                <img className='h-40 w-40 rounded-full mb-3' src={user?.photoURL} alt="" />
+                <p className=' text-white mb-3'>Email: {user?.email}</p>
+                <div className='w-full  flex justify-center'>
+                    <Button onClick={() => setOpenModal(true)}>Edit Profile</Button>
+                </div>
+            </div>
 
             <Modal show={openModal} size="md" onClose={onCloseModal} popup>
                 <Modal.Header />
@@ -57,7 +105,7 @@ export default function ProfilePage() {
                                 <div className="mb-2 block">
                                     <Label value="Upload Image" />
                                 </div>
-                                <FileInput {...register("image")} id="file-upload" />
+                                <FileInput {...register("image")} />
                             </div>
                             <div>
                                 <div className="mb-2 block">
@@ -67,6 +115,7 @@ export default function ProfilePage() {
                                     defaultValue={user?.email}
                                     placeholder="Your Email"
                                     required
+                                    {...register("email")}
                                     readOnly
                                 />
                             </div>

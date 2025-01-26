@@ -13,20 +13,22 @@ const sentToBB = `https://api.imgbb.com/1/upload?key=${imageBB}`;
 export default function BecomeATrainer() {
     const { user } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
-    const axiosPublic= useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
     const {
         register,
         handleSubmit,
         control,
         formState: { errors },
     } = useForm()
+
+
     const onSubmit = async (data) => {
-        const imageFile = {image: data.image[0]}
+        const imageFile = { image: data.image[0] }
         const response = await axiosPublic.post(sentToBB, imageFile, {
             headers: {
                 "content-type": "multipart/form-data"
             }
-        } )
+        })
         console.log(response.data)
         console.log(data)
         const becomeATrainer = {
@@ -36,21 +38,37 @@ export default function BecomeATrainer() {
             image: response.data.data.display_url,
             skills: data.skills,
             day: data.day,
-            time: data.time
-
+            // name: data.name,
+            // email: data.email,
+            // age: data.age,
+            // image: response.data.data.display_url,
+            // skills: data.skills,
+            // day: data.day,
+            time: data.time,
+            // experience: data.experience,
+            // background: data.background,
+            // details: data.details,
+            // qualifications: data.qualifications,
+            // trainerClasses: data.trainerClasses,
+            // packages: data.packages,
+            // socialLinks: {
+            //     facebook: data.facebook,
+            //     twitter: data.twitter,
+            //     instagram: data.instagram,
+            // },
         }
-        const res = await axiosSecure.post("/become-a-trainer",becomeATrainer)
+        const res = await axiosSecure.post("/become-a-trainer", becomeATrainer)
         console.log(res.data)
-        
-   
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Request has been sent",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        
+
+
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Request has been sent",
+            showConfirmButton: false,
+            timer: 1500
+        });
+
 
     }
     const options = [
@@ -62,6 +80,11 @@ export default function BecomeATrainer() {
         { value: 'saturday', label: 'Saturday' },
         { value: 'sunday', label: 'Sunday' },
     ]
+    const timeSlots = [
+        { value: 'morning', label: 'Morning (6:00 AM - 12:00 PM)' },
+        { value: 'noon', label: 'Noon (12:00 PM - 4:00 PM)' },
+        { value: 'evening', label: 'Evening (4:00 PM - 10:00 PM)' },
+    ];
     return (
         <div>
             <h1 className='text-center py-10 text-white text-4xl font-bold underline pt-10'>Become A Trainer</h1>
@@ -137,14 +160,197 @@ export default function BecomeATrainer() {
 
                     </div>
                 </div>
+                {/* time slot */}
                 <div className="w-full">
                     <div className="mb-2 block">
-                        <Label className="text-white text-lg" value="Time" />
+                        <Label className="text-white text-lg" value="Pick Time Slots" />
                     </div>
-                    <TextInput {...register('time')} type="time" required shadow />
+                    <Controller
+                        name="time"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                            <Select
+                                className="text-black"
+                                value={value}
+                                onChange={onChange}
+                                isMulti
+                                closeMenuOnSelect={false}
+                                options={timeSlots}
+                                components={animatedComponents}
+                            />
+                        )}
+                    />
                 </div>
+
                 <Button type="submit">Apply</Button>
             </form>
         </div>
+        // <div>
+        //     <h1 className="text-center py-10 text-white text-4xl font-bold underline pt-10">
+        //         Become A Trainer
+        //     </h1>
+        //     <form onSubmit={handleSubmit(onSubmit)} className="flex p-20 flex-col gap-4 mx-auto text-white">
+        //         {/* name and email */}
+        //         <div className="md:flex justify-center items-center gap-5">
+        //             <div className="w-full">
+        //                 <div className="mb-2 block ">
+        //                     <Label className="text-white text-lg" value="Full Name" />
+        //                 </div>
+        //                 <TextInput {...register('name')} type="text" placeholder="Your full name" required shadow />
+        //             </div>
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Your Email" />
+        //                 </div>
+        //                 <TextInput {...register('email')} readOnly defaultValue={user?.email} id="password2" type="email" required shadow />
+        //             </div>
+        //         </div>
+
+        //         {/* age and profile */}
+        //         <div className="md:flex justify-center items-center gap-5">
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Your Age" />
+        //                 </div>
+        //                 <TextInput {...register('age')} type="text" required shadow />
+        //             </div>
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Upload Image" />
+        //                 </div>
+        //                 <FileInput {...register('image')} />
+        //             </div>
+        //         </div>
+
+        //         {/* skills and day */}
+        //         <div className="md:flex justify-center items-center gap-5">
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Skills" />
+        //                 </div>
+        //                 <div className="flex gap-2 items-center">
+        //                     <Checkbox {...register("skills")} value="Yoga" />
+        //                     <Label className="text-white text-lg">Yoga</Label>
+        //                     <Checkbox {...register("skills")} value="Meditation" />
+        //                     <Label className="text-white text-lg">Meditation</Label>
+        //                     <Checkbox {...register("skills")} value="Cardio" />
+        //                     <Label className="text-white text-lg">Cardio</Label>
+        //                 </div>
+        //             </div>
+
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Pick Day" />
+        //                 </div>
+        //                 <Controller
+        //                     name="day"
+        //                     control={control}
+        //                     render={({ field: { onChange, value } }) => (
+        //                         <Select
+        //                             className="text-black"
+        //                             value={value}
+        //                             onChange={onChange}
+        //                             isMulti
+        //                             closeMenuOnSelect={false}
+        //                             options={options}
+        //                             components={animatedComponents}
+        //                         />
+        //                     )}
+        //                 />
+        //             </div>
+        //         </div>
+
+        //         {/* Time Slots */}
+        //         <div className="w-full">
+        //             <div className="mb-2 block">
+        //                 <Label className="text-white text-lg" value="Pick Time Slots" />
+        //             </div>
+        //             <Controller
+        //                 name="time"
+        //                 control={control}
+        //                 render={({ field: { onChange, value } }) => (
+        //                     <Select
+        //                         className="text-black"
+        //                         value={value}
+        //                         onChange={onChange}
+        //                         isMulti
+        //                         closeMenuOnSelect={false}
+        //                         options={timeSlots}
+        //                         components={animatedComponents}
+        //                     />
+        //                 )}
+        //             />
+        //         </div>
+
+        //         {/* Experience, Background, Details, Qualifications, Trainer Classes, Packages */}
+        //         <div className="md:flex justify-center items-center gap-5">
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Experience" />
+        //                 </div>
+        //                 <TextInput {...register('experience')} type="text" placeholder="Your experience in years" required shadow />
+        //             </div>
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Background" />
+        //                 </div>
+        //                 <TextInput {...register('background')} type="text" placeholder="Your background" required shadow />
+        //             </div>
+        //         </div>
+
+        //         <div className="w-full">
+        //             <div className="mb-2 block">
+        //                 <Label className="text-white text-lg" value="Trainer Details" />
+        //             </div>
+        //             <TextInput {...register('details')} type="text" placeholder="Short details about you" required shadow />
+        //         </div>
+
+        //         <div className="md:flex justify-center items-center gap-5">
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Qualifications" />
+        //                 </div>
+        //                 <TextInput {...register('qualifications')} type="text" placeholder="Your qualifications" required shadow />
+        //             </div>
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Trainer Classes" />
+        //                 </div>
+        //                 <TextInput {...register('trainerClasses')} type="text" placeholder="Classes you can teach" required shadow />
+        //             </div>
+        //         </div>
+
+        //         {/* <div className="w-full">
+        //             <div className="mb-2 block">
+        //                 <Label className="text-white text-lg" value="Packages Offered" />
+        //             </div>
+        //             <TextInput {...register('packages')} type="text" placeholder="Packages you offer" required shadow />
+        //         </div> */}
+
+        //         {/* Social Links */}
+        //         <div className="md:flex justify-center items-center gap-5">
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Facebook" />
+        //                 </div>
+        //                 <TextInput {...register('facebook')} type="url" placeholder="Your Facebook link" required shadow />
+        //             </div>
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Twitter" />
+        //                 </div>
+        //                 <TextInput {...register('twitter')} type="url" placeholder="Your Twitter link" required shadow />
+        //             </div>
+        //             <div className="w-full">
+        //                 <div className="mb-2 block">
+        //                     <Label className="text-white text-lg" value="Instagram" />
+        //                 </div>
+        //                 <TextInput {...register('instagram')} type="url" placeholder="Your Instagram link" required shadow />
+        //             </div>
+        //         </div>
+
+        //         <Button type="submit">Apply</Button>
+        //     </form>
+        // </div>
     )
 }

@@ -7,7 +7,7 @@ export default function ManageSlot() {
 
     return (
         <div>
-            <h1 className='text-center py-10 text-black text-4xl font-bold'>Manage Slots</h1>
+            <h1 className='text-center py-10 text-white text-4xl font-bold'>Manage Slots</h1>
             <div className="overflow-x-auto">
                 <Table>
                     <Table.Head>
@@ -18,14 +18,14 @@ export default function ManageSlot() {
                         {allTrainers.map((trainer, index) => (
                             <Table.Row key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                 <Table.Cell>
-                                    {trainer.availableSlots.map((slot, slotIndex) => (
+                                    {trainer.availableSlots?.map((slot, slotIndex) => (
                                         <Button key={slotIndex} className="mb-2">
                                             {slot}
                                         </Button>
                                     ))}
                                 </Table.Cell>
                                 <Table.Cell className="text-right">
-                                    {trainer.availableSlots.map((slot, slotIndex) => (
+                                    {trainer.availableSlots?.map((slot, slotIndex) => (
                                         <Button key={slotIndex} className="mb-2">
                                             Delete
                                         </Button>

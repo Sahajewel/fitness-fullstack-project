@@ -45,5 +45,7 @@ export default function AllTrainersCard({allTrainer}) {
                 Know More
             </button></Link>
         </div>
+       
+       
     )
 }

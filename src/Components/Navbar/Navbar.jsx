@@ -34,16 +34,16 @@ const Navbar = () => {
 
     //     }
     // }, [content])
-    const handleDashboardClick = () => {
-        if (user?.role === "admin") {
-          navigate("/dashboard/all-newsletter-subscriber");
-        } else if (user?.role === "trainer") {
-          navigate("/dashboard/manage-slot");
-        }
-        else {
-            navigate("/dashboard/profile")
-        }
-      };
+    // const handleDashboardClick = () => {
+    //     if (user?.role === "admin") {
+    //       navigate("/dashboard/all-newsletter-subscriber");
+    //     } else if (user?.role === "trainer") {
+    //       navigate("/dashboard/manage-slot");
+    //     }
+    //     else {
+    //         navigate("/dashboard/profile")
+    //     }
+    //   };
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -66,8 +66,8 @@ const Navbar = () => {
                     <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
                     <NavLink to="/all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink>
                     <NavLink to="/all-classes" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Classes</NavLink>
-                    {/* <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink> */}
-                    <NavLink onClick={handleDashboardClick} className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+                    <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
+                    {/* <NavLink onClick={handleDashboardClick} className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink> */}
                     <NavLink to="/community-forum"  className="text-white text-lg hover:text-yellow-300 transition duration-300">Community</NavLink>
                  
                 </div>
