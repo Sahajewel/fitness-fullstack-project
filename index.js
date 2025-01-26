@@ -133,19 +133,20 @@ async function run() {
       res.send(trainer)
 
     })
-    // app.patch("/users", async(req, res)=>{
-    //   const {email, name, image} = req.body;
-    //     const query = {email};
-    //     const updteDoc = {
-    //          $set: {
-    //           name,
-    //           image
-    //          }
-    //     }
-    //     const result = await userCollection.updateOne(query, updteDoc)
-    //     res.send(result)
+    app.put("/users", async(req, res)=>{
+      const user = req.body;
+     const cursor = {email: user?.email}                                                                                              
+      const updteDoc = {                   
+        $set: {
+         name: user?.name,
+         image: user?.image
+        },
+      };
+      console.log(updteDoc, "update document")
+        const result = await userCollection.updateOne(cursor, updteDoc)
+        res.send(result)
 
-    // })
+    })
 
     // newsletter collection
 
@@ -178,6 +179,23 @@ async function run() {
       res.send(result)
     })
 
+
+//     const combinedData = await client
+//   .db("fitnessDB")
+//   .collection("allTrainers")
+//   .aggregate([
+//     {
+//       $lookup: {
+//         from: "becomeATrainer", // The name of the second collection
+//         localField: "email",    // Field in allTrainersCollection
+//         foreignField: "email",  // Matching field in becomeATrainerCollection
+//         as: "trainerRequests"   // Name of the array to store matched data
+//       }
+//     }
+//   ])
+//   .toArray();
+
+// console.log(combinedData);
     // payment collection
     app.post("/payment", async(req, res)=>{
       const cursor = req.body;
@@ -233,6 +251,7 @@ app.get("/histo", async (req, res)=>{
   
     app.get("/become-a-trainer", async(req, res)=>{
       const result = await becomeATrainerCollection.find().toArray();
+      
       res.send(result)
     })
     app.get("/become-a-trainer/:id", async(req, res)=>{
