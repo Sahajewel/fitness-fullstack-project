@@ -3,8 +3,8 @@ import { auth } from '../../public/_firebase_init'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import useAxiosPublic from '../Hooks/useAxiosPublic'
 
-export const AuthContext = createContext()
-const googleProvider = new GoogleAuthProvider()
+export const AuthContext = createContext();
+const googleProvider = new GoogleAuthProvider();
 export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -39,7 +39,7 @@ export default function AuthProvider({children}) {
             if(result?.data?.token){
               localStorage.setItem("access-token", result.data.token)
             }
-           
+            setLoading(false)
           })
           setLoading(false)
         }

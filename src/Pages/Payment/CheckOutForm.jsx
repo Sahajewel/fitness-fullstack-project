@@ -5,9 +5,11 @@ import UsePayment from '../../Hooks/UsePayment';
 import { AuthContext } from '../../Provider/AuthProvider';
 import UseAxiosSecure from '../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 export default function CheckOutForm({ price, slot, classes,payment }) {
     console.log(payment)
+    const navigate = useNavigate("/")
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState("");
@@ -97,6 +99,7 @@ export default function CheckOutForm({ price, slot, classes,payment }) {
             showConfirmButton: false,
             timer: 1500
         });
+        navigate("/")
 
     }
     return (

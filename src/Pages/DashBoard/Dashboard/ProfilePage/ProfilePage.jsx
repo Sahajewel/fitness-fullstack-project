@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import UseAxiosSecure from '../../../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 const imageBB = import.meta.env.VITE_IMG_BB_API;
 const sentToBB = `https://api.imgbb.com/1/upload?key=${imageBB}`;
 export default function ProfilePage() {
@@ -74,7 +75,10 @@ export default function ProfilePage() {
     }
     return (
         <div className='flex flex-col mx-auto items-center justify-center'>
-            <h1 className='mb-4 text-white font-bold text-4xl'>Profile</h1>
+             <Helmet>
+             <title>Dashboard | profile</title>
+           </Helmet>
+            <h1 className='mb-10 text-white underline font-bold text-4xl'>Profile</h1>
             <div className='bg-gray-400 p-10'>
                 <h1 className='text-white text-center mb-3'>Name: {user?.displayName}</h1>
                 <img className='h-40 w-40 rounded-full mb-3' src={user?.photoURL} alt="" />

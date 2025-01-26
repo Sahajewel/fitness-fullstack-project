@@ -1,0 +1,564 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFZK_t8_hS_9VclQ…",
+      "experience": 8,
+      "background": "John specializes in strength training and has transformed hundreds of clients.",
+      "expertise": ["Strength Training", "Bodybuilding", "Nutrition"],
+      "qualifications": ["Certified Personal Trainer", "Nutrition Specialist", "Bodybuilding Coach"],
+      "details": "John creates personalized training programs focused on strength building.",
+      "trainerClasses": [
+        {
+          "className": "Strength Training",
+          "description": "A class focused on building strength through progressive overload.",
+          "duration": "60 minutes",
+          "type": "Group"
+        },
+        {
+          "className": "Bodybuilding Basics",
+          "description": "Learn the fundamentals of bodybuilding including techniques and nutrition.",
+          "duration": "60 minutes",
+          "type": "Group"
+        },
+        {
+          "className": "Private Strength Session",
+          "description": "Customized personal training session for strength development.",
+          "duration": "60 minutes",
+          "type": "Personal"
+        }
+      ],
+      "packages": [
+        {
+          "packageName": "Basic",
+          "price": "100",
+          "duration": "1 month",
+          "description": "Includes 2 group classes per week and access to training resources."
+        },
+        {
+          "packageName": "Standard",
+          "price": "220",
+          "duration": "1 month",
+          "description": "Includes everything in the Basic package, plus 1 private strength session."
+        },
+        {
+          "packageName": "Premium",
+          "price": "400",
+          "duration": "1 month",
+          "description": "Includes everything in the Standard package, plus nutrition coaching."
+        }
+      ],
+      "socialLinks": {
+        "facebook": "https://facebook.com/john.doe",
+        "instagram": "https://instagram.com/john.doe",
+        "twitter": "https://twitter.com/john_doe"
+      },
+      "availableSlots": ["Monday 9:00 AM", "Wednesday 6:00 PM", "Friday 10:00 AM"]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "profileImage": "https://example.com/images/jane.jpg",
+      "experience": 5,
+      "background": "Jane is a yoga and mindfulness expert with years of teaching experience.",
+      "expertise": ["Yoga", "Mindfulness", "Flexibility Training"],
+      "qualifications": ["Certified Yoga Instructor", "Meditation Guide"],
+      "details": "Jane provides relaxing yoga classes and mindfulness training.",
+      "trainerClasses": [
+        {
+          "className": "Yoga Basics",
+          "description": "An introduction to yoga for beginners.",
+          "duration": "60 minutes",
+          "type": "Group"
+        },
+        {
+          "className": "Advanced Yoga",
+          "description": "For experienced yoga enthusiasts.",
+          "duration": "90 minutes",
+          "type": "Group"
+        },
+        {
+          "className": "Personal Yoga Session",
+          "description": "One-on-one yoga training tailored to your needs.",
+          "duration": "60 minutes",
+          "type": "Personal"
+        }
+      ],
+      "packages": [
+        {
+          "packageName": "Starter",
+          "price": "80",
+          "duration": "1 month",
+          "description": "2 yoga group classes per week."
+        },
+        {
+          "packageName": "Plus",
+          "price": "200",
+          "duration": "1 month",
+          "description": "Includes everything in the Starter package plus 1 personal yoga session."
+        },
+        {
+          "packageName": "Ultimate",
+          "price": "350",
+          "duration": "1 month",
+          "description": "Includes unlimited yoga classes and 2 personal sessions."
+        }
+      ],
+      "socialLinks": {
+        "facebook": "https://facebook.com/jane.smith",
+        "instagram": "https://instagram.com/jane.smith",
+        "twitter": "https://twitter.com/jane_smith"
+      },
+      "availableSlots": ["Tuesday 8:00 AM", "Thursday 7:00 PM", "Saturday 11:00 AM"]
+    },
+    {
+        "id": 3,
+        "name": "Mike Johnson",
+        "profileImage": "https://example.com/images/mike.jpg",
+        "experience": 10,
+        "background": "Mike is a certified fitness trainer specializing in weight loss and cardio.",
+        "expertise": ["Weight Loss", "Cardio Training", "HIIT"],
+        "qualifications": ["Certified Fitness Trainer", "HIIT Specialist"],
+        "details": "Mike offers high-energy classes for weight loss and cardiovascular health.",
+        "trainerClasses": [
+          {
+            "className": "Cardio Blast",
+            "description": "Intense cardio workouts for fat burning.",
+            "duration": "45 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "HIIT Basics",
+            "description": "Learn the fundamentals of High-Intensity Interval Training.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Personal Cardio Session",
+            "description": "One-on-one session for tailored cardio programs.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Basic",
+            "price": "90",
+            "duration": "1 month",
+            "description": "Includes 2 cardio group classes per week."
+          },
+          {
+            "packageName": "Advanced",
+            "price": "180",
+            "duration": "1 month",
+            "description": "Everything in Basic plus 1 personal training session."
+          },
+          {
+            "packageName": "Elite",
+            "price": "350",
+            "duration": "1 month",
+            "description": "Includes unlimited classes and 3 personal sessions."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/mike.johnson",
+          "instagram": "https://instagram.com/mike.johnson",
+          "twitter": "https://twitter.com/mike_johnson"
+        },
+        "availableSlots": ["Monday 7:00 AM", "Wednesday 5:00 PM", "Friday 6:00 PM"]
+      },
+      {
+        "id": 4,
+        "name": "Sara Williams",
+        "profileImage": "https://example.com/images/sara.jpg",
+        "experience": 7,
+        "background": "Sara is a Pilates expert dedicated to improving core strength and flexibility.",
+        "expertise": ["Pilates", "Flexibility", "Core Training"],
+        "qualifications": ["Certified Pilates Instructor", "Core Strength Specialist"],
+        "details": "Sara designs effective Pilates routines to strengthen the core.",
+        "trainerClasses": [
+          {
+            "className": "Pilates for Beginners",
+            "description": "A gentle introduction to Pilates.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Core Strength Training",
+            "description": "Focuses on building a strong and stable core.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Private Pilates Session",
+            "description": "Customized one-on-one Pilates instruction.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Basic",
+            "price": "120",
+            "duration": "1 month",
+            "description": "Includes 2 group Pilates classes per week."
+          },
+          {
+            "packageName": "Standard",
+            "price": "250",
+            "duration": "1 month",
+            "description": "Everything in Basic plus 1 private session."
+          },
+          {
+            "packageName": "Premium",
+            "price": "400",
+            "duration": "1 month",
+            "description": "Includes unlimited classes and nutrition advice."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/sara.williams",
+          "instagram": "https://instagram.com/sara.williams",
+          "twitter": "https://twitter.com/sara_williams"
+        },
+        "availableSlots": ["Tuesday 10:00 AM", "Thursday 3:00 PM", "Saturday 9:00 AM"]
+      },
+      {
+        "id": 5,
+        "name": "Alex Brown",
+        "profileImage": "https://example.com/images/alex.jpg",
+        "experience": 6,
+        "background": "Alex is a martial arts trainer with expertise in self-defense techniques.",
+        "expertise": ["Martial Arts", "Self-Defense", "Kickboxing"],
+        "qualifications": ["Black Belt Karate", "Certified Kickboxing Coach"],
+        "details": "Alex teaches martial arts to enhance strength and confidence.",
+        "trainerClasses": [
+          {
+            "className": "Self-Defense Basics",
+            "description": "Learn basic self-defense techniques.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Advanced Kickboxing",
+            "description": "High-intensity kickboxing sessions.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Personal Martial Arts Coaching",
+            "description": "Customized training sessions.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Basic",
+            "price": "100",
+            "duration": "1 month",
+            "description": "2 group classes per week."
+          },
+          {
+            "packageName": "Standard",
+            "price": "220",
+            "duration": "1 month",
+            "description": "Everything in Basic plus 1 personal session."
+          },
+          {
+            "packageName": "Premium",
+            "price": "400",
+            "duration": "1 month",
+            "description": "Unlimited classes and nutrition coaching."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/alex.brown",
+          "instagram": "https://instagram.com/alex.brown",
+          "twitter": "https://twitter.com/alex_brown"
+        },
+        "availableSlots": ["Monday 6:00 AM", "Wednesday 7:00 PM", "Friday 8:00 AM"]
+      },
+      {
+        "id": 6,
+        "name": "Liam Miller",
+        "profileImage": "https://example.com/images/liam.jpg",
+        "experience": 12,
+        "background": "Liam is a sports performance coach specializing in athlete development.",
+        "expertise": ["Athletic Performance", "Agility Training", "Strength & Conditioning"],
+        "qualifications": ["Certified Sports Trainer", "Strength & Conditioning Specialist"],
+        "details": "Liam helps athletes improve performance through tailored programs.",
+        "trainerClasses": [
+          {
+            "className": "Agility Training",
+            "description": "Improve speed and agility.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Strength for Athletes",
+            "description": "Strength training for improved athletic performance.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Personal Coaching",
+            "description": "One-on-one athlete performance coaching.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Basic",
+            "price": "120",
+            "duration": "1 month",
+            "description": "Includes 2 classes per week."
+          },
+          {
+            "packageName": "Advanced",
+            "price": "280",
+            "duration": "1 month",
+            "description": "Everything in Basic plus 1 private session."
+          },
+          {
+            "packageName": "Elite",
+            "price": "500",
+            "duration": "1 month",
+            "description": "Unlimited classes and advanced performance analysis."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/liam.miller",
+          "instagram": "https://instagram.com/liam.miller",
+          "twitter": "https://twitter.com/liam_miller"
+        },
+        "availableSlots": ["Monday 8:00 AM", "Wednesday 5:00 PM", "Saturday 10:00 AM"]
+      },
+      {
+        "id": 7,
+        "name": "Emily Davis",
+        "profileImage": "https://example.com/images/emily.jpg",
+        "experience": 9,
+        "background": "Emily specializes in dance-based fitness, focusing on Zumba and aerobics.",
+        "expertise": ["Zumba", "Aerobics", "Dance Fitness"],
+        "qualifications": ["Certified Zumba Instructor", "Aerobics Specialist"],
+        "details": "Emily combines dance and fitness to create fun and effective workouts.",
+        "trainerClasses": [
+          {
+            "className": "Zumba Dance Party",
+            "description": "A high-energy dance fitness session.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Aerobics Basics",
+            "description": "Learn basic aerobics for cardiovascular health.",
+            "duration": "45 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Private Dance Fitness Session",
+            "description": "One-on-one dance fitness training tailored to your goals.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Starter",
+            "price": "90",
+            "duration": "1 month",
+            "description": "Includes 2 group dance classes per week."
+          },
+          {
+            "packageName": "Plus",
+            "price": "200",
+            "duration": "1 month",
+            "description": "Everything in Starter plus 1 private session."
+          },
+          {
+            "packageName": "Premium",
+            "price": "350",
+            "duration": "1 month",
+            "description": "Unlimited classes and a personal nutrition plan."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/emily.davis",
+          "instagram": "https://instagram.com/emily.davis",
+          "twitter": "https://twitter.com/emily_davis"
+        },
+        "availableSlots": ["Tuesday 7:00 AM", "Thursday 6:00 PM", "Saturday 8:00 AM"]
+      },
+      {
+        "id": 8,
+        "name": "David Wilson",
+        "profileImage": "https://example.com/images/david.jpg",
+        "experience": 11,
+        "background": "David is a certified running coach helping individuals improve endurance.",
+        "expertise": ["Running", "Endurance Training", "Marathon Prep"],
+        "qualifications": ["Certified Running Coach", "Endurance Specialist"],
+        "details": "David offers customized running plans for beginners and advanced athletes.",
+        "trainerClasses": [
+          {
+            "className": "Running Basics",
+            "description": "An introduction to proper running techniques.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Endurance Boost",
+            "description": "Workouts focused on improving endurance.",
+            "duration": "90 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Marathon Training",
+            "description": "Personalized marathon preparation sessions.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Basic",
+            "price": "100",
+            "duration": "1 month",
+            "description": "Includes 2 group running classes per week."
+          },
+          {
+            "packageName": "Standard",
+            "price": "230",
+            "duration": "1 month",
+            "description": "Everything in Basic plus 1 personal coaching session."
+          },
+          {
+            "packageName": "Elite",
+            "price": "400",
+            "duration": "1 month",
+            "description": "Unlimited classes and marathon-specific coaching."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/david.wilson",
+          "instagram": "https://instagram.com/david.wilson",
+          "twitter": "https://twitter.com/david_wilson"
+        },
+        "availableSlots": ["Monday 6:00 AM", "Wednesday 7:00 PM", "Friday 8:00 AM"]
+      },
+      {
+        "id": 9,
+        "name": "Sophia Taylor",
+        "profileImage": "https://example.com/images/sophia.jpg",
+        "experience": 8,
+        "background": "Sophia is a flexibility and yoga expert focused on relaxation and balance.",
+        "expertise": ["Flexibility Training", "Yoga", "Meditation"],
+        "qualifications": ["Certified Yoga Instructor", "Meditation Specialist"],
+        "details": "Sophia combines yoga and meditation for improved well-being.",
+        "trainerClasses": [
+          {
+            "className": "Gentle Yoga",
+            "description": "Relaxing yoga sessions for beginners.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Flexibility Boost",
+            "description": "Classes aimed at improving overall flexibility.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Private Yoga Session",
+            "description": "Personalized yoga training for individual needs.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Starter",
+            "price": "100",
+            "duration": "1 month",
+            "description": "2 group classes per week."
+          },
+          {
+            "packageName": "Advanced",
+            "price": "220",
+            "duration": "1 month",
+            "description": "Everything in Starter plus 1 personal session."
+          },
+          {
+            "packageName": "Premium",
+            "price": "350",
+            "duration": "1 month",
+            "description": "Unlimited group classes and meditation guidance."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/sophia.taylor",
+          "instagram": "https://instagram.com/sophia.taylor",
+          "twitter": "https://twitter.com/sophia_taylor"
+        },
+        "availableSlots": ["Tuesday 9:00 AM", "Thursday 5:00 PM", "Sunday 7:00 AM"]
+      },
+      {
+        "id": 10,
+        "name": "James Anderson",
+        "profileImage": "https://example.com/images/james.jpg",
+        "experience": 10,
+        "background": "James is a strength and conditioning coach focused on powerlifting.",
+        "expertise": ["Powerlifting", "Strength Training", "Conditioning"],
+        "qualifications": ["Certified Powerlifting Coach", "Strength Specialist"],
+        "details": "James provides advanced strength training programs for athletes.",
+        "trainerClasses": [
+          {
+            "className": "Powerlifting Basics",
+            "description": "Learn the fundamentals of powerlifting.",
+            "duration": "60 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Strength Training Pro",
+            "description": "Advanced strength and conditioning sessions.",
+            "duration": "75 minutes",
+            "type": "Group"
+          },
+          {
+            "className": "Personal Strength Session",
+            "description": "Customized personal training for strength goals.",
+            "duration": "60 minutes",
+            "type": "Personal"
+          }
+        ],
+        "packages": [
+          {
+            "packageName": "Basic",
+            "price": "150",
+            "duration": "1 month",
+            "description": "Includes 2 group strength classes per week."
+          },
+          {
+            "packageName": "Standard",
+            "price": "300",
+            "duration": "1 month",
+            "description": "Everything in Basic plus 1 personal strength session."
+          },
+          {
+            "packageName": "Elite",
+            "price": "500",
+            "duration": "1 month",
+            "description": "Unlimited classes and personalized strength programs."
+          }
+        ],
+        "socialLinks": {
+          "facebook": "https://facebook.com/james.anderson",
+          "instagram": "https://instagram.com/james.anderson",
+          "twitter": "https://twitter.com/james_anderson"
+        },
+        "availableSlots": ["Monday 5:00 AM", "Wednesday 6:00 PM", "Friday 7:00 PM"]
+      }
+    
+  ]
+  

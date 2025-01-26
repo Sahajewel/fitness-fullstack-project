@@ -1,13 +1,17 @@
 import React from 'react'
 import UseAllTrainers from '../../../Hooks/UseAllTrainers'
 import { Button, Table } from 'flowbite-react';
+import { Helmet } from 'react-helmet';
 
 export default function ManageSlot() {
     const [allTrainers] = UseAllTrainers();
 
     return (
         <div>
-            <h1 className='text-center py-10 text-white text-4xl font-bold'>Manage Slots</h1>
+             <Helmet>
+             <title>Dashboard | manage-slot</title>
+           </Helmet>
+            <h1 className='text-center py-10 underline text-white text-4xl font-bold'>Manage Slots</h1>
             <div className="overflow-x-auto">
                 <Table>
                     <Table.Head>

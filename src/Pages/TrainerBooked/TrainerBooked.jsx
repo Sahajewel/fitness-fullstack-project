@@ -44,7 +44,7 @@ export default function TrainerBooked() {
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">{packag.description}</span>
                         </li>
-                        <li className="flex space-x-3">
+                        {/* <li className="flex space-x-3">
                             <svg
                                 className="h-5 w-5 shrink-0 text-cyan-600 dark:text-cyan-500"
                                 fill="currentColor"
@@ -60,7 +60,7 @@ export default function TrainerBooked() {
                             <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
                                 {packag.details?.map((detail, ind) => <li key={ind}>{detail}</li>)}
                             </span>
-                        </li>
+                        </li> */}
                     </ul>
 
 

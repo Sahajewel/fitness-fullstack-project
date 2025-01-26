@@ -3,6 +3,7 @@ import UsePayment from '../../../Hooks/UsePayment'
 import { Table } from 'flowbite-react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 import UseNewsletter from '../../../Hooks/UseNewsletter';
+import { Helmet } from 'react-helmet';
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 export default function Balance() {
     const [payments] = UsePayment();
@@ -26,6 +27,9 @@ export default function Balance() {
     ];
     return (
         <div>
+             <Helmet>
+             <title>Dashboard | balance</title>
+           </Helmet>
             <h1 className='text-center py-10 text-white text-4xl font-bold underline'>Total Balance: ${totalPrice}</h1>
             <div className='flex justify-center flex-col '>
                 <div className="overflow-x-auto mb-10">

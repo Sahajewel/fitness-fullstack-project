@@ -3,6 +3,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const imageBB = import.meta.env.VITE_IMG_BB_API;
 const sentToBB = `https://api.imgbb.com/1/upload?key=${imageBB}`;
@@ -41,7 +42,10 @@ export default function AddANewClass() {
     }
     return (
         <div>
-            <h1 className='text-center py-10 text-black text-4xl font-bold underline'>Add A New Class</h1>
+             <Helmet>
+             <title>Dashboard | add-a-new-class</title>
+           </Helmet>
+            <h1 className='text-center py-10 text-white text-4xl font-bold underline'>Add A New Class</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-lg flex-col justify-center mx-auto gap-4">
                 <div>
                     <div className="mb-2 block">
@@ -55,7 +59,7 @@ export default function AddANewClass() {
                     </div>
                     <FileInput {...register('image')} />
                 </div>
-                <div className="max-w-md">
+                <div className="">
                     <div className="mb-2 block">
                         <Label value="Write Details" />
                     </div>

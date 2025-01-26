@@ -3,6 +3,7 @@ import UseAllTrainers from '../../../Hooks/UseAllTrainers'
 import { Table } from 'flowbite-react'
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 export default function DashboardAllTrainers() {
     const [allTrainers, refetch] = UseAllTrainers();
@@ -22,7 +23,10 @@ export default function DashboardAllTrainers() {
     }
     return (
         <div>
-            <h1 className='text-center py-10 text-black text-4xl font-bold'>All Trainers</h1>
+             <Helmet>
+             <title>Dashboard | all-trainers</title>
+           </Helmet>
+            <h1 className='text-center py-10 text-white underline text-4xl font-bold'>All Trainers</h1>
             <div className="overflow-x-auto">
                 <Table>
                     <Table.Head>

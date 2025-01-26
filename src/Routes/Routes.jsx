@@ -25,6 +25,7 @@ import Balance from "../Pages/DashBoard/Dashboard/Balance";
 import BookedTrainer from "../Pages/DashBoard/Dashboard/BookedTrainer/BookedTrainer";
 import Classes from "../Pages/HomePages/AllClasses";
 import CommunityForum from "../Pages/DashBoard/AddNewForum/CommunityForum";
+import DefaultDashboard from "../Pages/DashBoard/Dashboard/DefaultDashboard";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       path: "/dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
+        {
+          path: "",
+          element: <DefaultDashboard></DefaultDashboard>
+        },
         {
           path: "/dashboard/all-newsletter-subscriber",
           element: <AllNewsLettersSubscriber></AllNewsLettersSubscriber>

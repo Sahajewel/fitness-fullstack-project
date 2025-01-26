@@ -3,6 +3,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure'
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet'
 
 export default function AddNewForum() {
     const axioxSecure = UseAxiosSecure()
@@ -38,19 +39,22 @@ export default function AddNewForum() {
     }
     return (
         <div>
-            <h1 className='text-center py-10 text-black text-4xl font-bold underline'>Add A New Forum</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+             <Helmet>
+             <title>Dashboard | add-new-forum</title>
+           </Helmet>
+            <h1 className='text-center py-10 text-white  text-4xl font-bold underline'>Add A New Forum</h1>
+            <form  onSubmit={handleSubmit(onSubmit)}>
                 {/* routine and tips */}
                 <div className='md:flex gap-6'>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Workout Routine" />
+                            <Label className='text-white text-lg' value="Workout Routine" />
                         </div>
                         <Textarea {...register("routine")} id="comment" placeholder="Wright something about workout routine" required rows={4} />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Fitness Tips" />
+                            <Label className='text-white text-lg' value="Fitness Tips" />
                         </div>
                         <Textarea {...register("fitnessTips")} id="comment" placeholder="Wright something about fitness tips" required rows={4} />
                     </div>
@@ -59,13 +63,13 @@ export default function AddNewForum() {
                 <div className='md:flex gap-6'>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Healthy Lifestyle" />
+                            <Label className='text-white text-lg' value="Healthy Lifestyle" />
                         </div>
                         <Textarea {...register("lifeStyle")} id="comment" placeholder="Wright something about healthy Life style" required rows={4} />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Weight Loss" />
+                            <Label className='text-white text-lg' value="Weight Loss" />
                         </div>
                         <Textarea {...register("weightLoss")} id="comment" placeholder="Wright something about weight loss" required rows={4} />
                     </div>
@@ -74,13 +78,13 @@ export default function AddNewForum() {
                 <div className='md:flex gap-6'>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Cardio Workouts" />
+                            <Label className='text-white text-lg' value="Cardio Workouts" />
                         </div>
                         <Textarea {...register("cardio")} id="comment" placeholder="Wright something about cardio workouts" required rows={4} />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Yoga" />
+                            <Label className='text-white text-lg' value="Yoga" />
                         </div>
                         <Textarea {...register("yoga")} id="comment" placeholder="Wright something about Yoga" required rows={4} />
                     </div>
@@ -89,13 +93,13 @@ export default function AddNewForum() {
                 <div className='md:flex gap-6'>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Nutrition Tips" />
+                            <Label className='text-white text-lg' value="Nutrition Tips" />
                         </div>
                         <Textarea {...register("nutrition")} id="comment" placeholder="Wright something about nutrition Tips" required rows={4} />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label value="Healthy Recipes" />
+                            <Label className='text-white text-lg' value="Healthy Recipes" />
                         </div>
                         <Textarea {...register("healthyRecipes")} id="comment" placeholder="Wright something about healthy recipes" required rows={4} />
                     </div>

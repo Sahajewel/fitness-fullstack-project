@@ -7,7 +7,8 @@ import UseTrainer from '../../../Hooks/UseTrainer';
 export default function Dashboard() {
     const { user } = useContext(AuthContext);
     const [isAdmin] = UseAdmin();
-    const [isTrainer] = UseTrainer()
+    const [isTrainer] = UseTrainer();
+    
 
     let content;
     if (isAdmin) {

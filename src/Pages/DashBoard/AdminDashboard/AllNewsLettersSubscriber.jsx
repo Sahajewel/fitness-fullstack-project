@@ -1,11 +1,15 @@
 import { Table } from "flowbite-react";
 import UseNewsletter from "../../../Hooks/UseNewsletter";
+import { Helmet } from "react-helmet";
 export default function AllNewsLettersSubscriber() {
     const [newsLetter] = UseNewsletter()
     return (
         <div>
-            <h1 className='text-center text-4xl font-bold mb-8'>All Newsletter Subscriber</h1>
-            <h1 className="mb-5">newsletter subscriber: {newsLetter.length}</h1>
+             <Helmet>
+             <title>Dashboard | all-newsletter-subscribers</title>
+           </Helmet>
+            <h1 className='text-center text-white underline text-4xl font-bold mb-8'>All Newsletter Subscriber</h1>
+            <h1 className="mb-5 text-xl text-white ">Newsletter subscriber: {newsLetter.length}</h1>
             <div className="overflow-x-auto">
                 <Table>
                     <Table.Head>

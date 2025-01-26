@@ -3,12 +3,16 @@ import useAxiosPublic from '../../../Hooks/useAxiosPublic'
 import UseForymCommunity from '../../../Hooks/UseForymCommunity';
 import Voting from '../../HomePages/Voting/Voting';
 import Home from '../../HomePages/Home/Home';
+import { Helmet } from 'react-helmet';
 
 export default function CommunityForum() {
     const axiosPublic = useAxiosPublic();
     const [communityForum] = UseForymCommunity()
     return (
         <div className='pb-20'>
+             <Helmet>
+            <title>Home | community</title>
+           </Helmet>
             <h1 className='text-center py-10  text-4xl font-bold text-white underline'>Community Forum</h1>
             <div className="flex flex-col gap-10">
                 {communityForum.map((category, index) => (

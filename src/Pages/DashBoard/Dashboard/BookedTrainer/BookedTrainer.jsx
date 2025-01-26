@@ -6,6 +6,7 @@ import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function BookedTrainer() {
     const [bookedTrainer] = UseBookedTrainer();
@@ -67,6 +68,9 @@ export default function BookedTrainer() {
     };
     return (
         <div>
+             <Helmet>
+             <title>Dashboard | booked-trainer</title>
+           </Helmet>
             <h1 className='text-center py-10 text-white text-4xl font-bold'> Booked Trainer</h1>
             {
                 bookedTrainer.map((trainer, index) => <div key={index} className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">

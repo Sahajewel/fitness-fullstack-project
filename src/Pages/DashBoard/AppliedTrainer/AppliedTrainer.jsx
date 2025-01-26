@@ -2,11 +2,15 @@ import React from 'react'
 import UseAppliedTrainer from '../../../Hooks/UseAppliedTrainer'
 import { Table } from 'flowbite-react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 export default function AppliedTrainer() {
   const [appliedTrainer] = UseAppliedTrainer()
   return (
     <div>
+       <Helmet>
+             <title>Dashboard | applied-trainers</title>
+           </Helmet>
       <h1 className='text-center py-10 text-white text-4xl font-bold underline mt-10'>Applied Trainers:  {appliedTrainer.length}</h1>
       <div className="overflow-x-auto">
         <Table>
