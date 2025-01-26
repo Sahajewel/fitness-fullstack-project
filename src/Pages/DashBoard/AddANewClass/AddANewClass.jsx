@@ -4,11 +4,13 @@ import { useForm } from 'react-hook-form'
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 
 const imageBB = import.meta.env.VITE_IMG_BB_API;
 const sentToBB = `https://api.imgbb.com/1/upload?key=${imageBB}`;
 export default function AddANewClass() {
-    const axiosSecure = UseAxiosSecure()
+    const axiosSecure = UseAxiosSecure();
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -39,6 +41,7 @@ export default function AddANewClass() {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    navigate("/dashboard")
     }
     return (
         <div>

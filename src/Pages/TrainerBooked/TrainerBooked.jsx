@@ -21,7 +21,7 @@ export default function TrainerBooked() {
                     <p><span className='font-bold mb-2'>Class Name:</span> {booked.trainerClasses?.map((classes, ind) => <li key={ind}>{classes.className}</li>)}</p>
 
                 </div>
-                <p className="md:flex  gap-10 my-10 ">{booked.packages.map((packag, ind) => <Card key={ind} className='max-w-sm'>
+                <p className="md:flex sm:space-y-4 md:space-y-0 gap-10 my-10 ">{booked.packages.map((packag, ind) => <Card key={ind} className='max-w-sm'>
                     <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{packag.packageName} plan</h5>
                     <div className="flex items-baseline text-gray-900 dark:text-white">
                         <span className="text-3xl font-semibold">$</span>

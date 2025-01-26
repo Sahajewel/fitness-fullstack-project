@@ -63,7 +63,7 @@ export default function BookedTrainer() {
             showConfirmButton: false,
             timer: 1500
         });
-       
+       navigate("/dashboard")
 
     };
     return (

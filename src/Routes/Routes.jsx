@@ -26,6 +26,7 @@ import BookedTrainer from "../Pages/DashBoard/Dashboard/BookedTrainer/BookedTrai
 import Classes from "../Pages/HomePages/AllClasses";
 import CommunityForum from "../Pages/DashBoard/AddNewForum/CommunityForum";
 import DefaultDashboard from "../Pages/DashBoard/Dashboard/DefaultDashboard";
+import ActivityLog from "../Pages/DashBoard/ActivityLog/ActivityLog";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -55,17 +56,17 @@ export const router = createBrowserRouter([
         },
         {
           path: "/trainer-booked/:id/:slot",
-          element: <TrainerBooked></TrainerBooked>,
+          element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>,
           loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
         },
         {
           path: "/payment/:id/:price/:name/:slot",
-          element: <Payment></Payment>,
+          element: <PrivateRoute><Payment></Payment></PrivateRoute>,
           loader: ({params})=>fetch(`http://localhost:5001/all-trainers/${params.id}`)
         },
         {
           path: "/become-a-trainer",
-          element: <BecomeATrainer></BecomeATrainer>
+          element:<PrivateRoute> <BecomeATrainer></BecomeATrainer></PrivateRoute>
         },
         {
           path: "/all-classes",
@@ -87,19 +88,19 @@ export const router = createBrowserRouter([
         },
         {
           path: "/dashboard/all-newsletter-subscriber",
-          element: <AllNewsLettersSubscriber></AllNewsLettersSubscriber>
+          element: <AdminRoutes><AllNewsLettersSubscriber></AllNewsLettersSubscriber></AdminRoutes>
         },
         {
           path: "/dashboard/all-trainers",
-          element: <DashboardAllTrainers></DashboardAllTrainers>
+          element: <AdminRoutes><DashboardAllTrainers></DashboardAllTrainers></AdminRoutes>
         },
         {
           path: "/dashboard/applied-trainers",
-          element: <AppliedTrainer></AppliedTrainer>
+          element: <AdminRoutes><AppliedTrainer></AppliedTrainer></AdminRoutes>
         }, 
         {
           path: "/dashboard/applied-trainers-details/:id",
-          element: <AppliedTrainersDetails></AppliedTrainersDetails>,
+          element: <AdminRoutes><AppliedTrainersDetails></AppliedTrainersDetails></AdminRoutes>,
           loader:({params})=>fetch(`http://localhost:5001/become-a-trainer/${params.id}`),
          
         }, 
@@ -121,11 +122,15 @@ export const router = createBrowserRouter([
         },
         {
           path: "/dashboard/balance",
-          element: <Balance></Balance>
+          element: <AdminRoutes><Balance></Balance></AdminRoutes>
         },
         {
           path: "/dashboard/booked-trainer",
           element: <BookedTrainer></BookedTrainer>
+        },
+        {
+          path: "/dashboard/activity-log",
+          element: <ActivityLog></ActivityLog>,
         }
       ]
     }

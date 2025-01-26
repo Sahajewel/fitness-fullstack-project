@@ -36,6 +36,7 @@ export default function Dashboard() {
     else {
         content = (
             <div className='flex flex-col justify-center mx-auto  gap-2 py-10 px-10'>
+                <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/activity-log">Activity Log</NavLink>
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/profile">Profile</NavLink>
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/dashboard/booked-trainer">Booked Trainer</NavLink>
                 <NavLink className="bg-red-950 p-3 text-white rounded-xl " to="/">Home</NavLink>

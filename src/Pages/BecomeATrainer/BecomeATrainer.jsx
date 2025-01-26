@@ -7,16 +7,19 @@ import { Controller, useForm } from "react-hook-form";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 const animatedComponents = makeAnimated();
 const imageBB = import.meta.env.VITE_IMG_BB_API;
 const sentToBB = `https://api.imgbb.com/1/upload?key=${imageBB}`;
 export default function BecomeATrainer() {
     const { user } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
+    const navigate = useNavigate()
     const axiosPublic = useAxiosPublic();
     const {
         register,
         handleSubmit,
+        reset,
         control,
         formState: { errors },
     } = useForm()
@@ -60,7 +63,7 @@ export default function BecomeATrainer() {
         const res = await axiosSecure.post("/become-a-trainer", becomeATrainer)
         console.log(res.data)
 
-
+reset();
         Swal.fire({
             position: "top-end",
             icon: "success",
@@ -68,7 +71,7 @@ export default function BecomeATrainer() {
             showConfirmButton: false,
             timer: 1500
         });
-
+navigate("/")
 
     }
     const options = [
@@ -111,7 +114,7 @@ export default function BecomeATrainer() {
                         <div className="mb-2 block">
                             <Label className="text-white text-lg" value="Your Age" />
                         </div>
-                        <TextInput {...register('age')} type="text" required shadow />
+                        <TextInput {...register('age')} type="number" required shadow />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">

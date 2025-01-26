@@ -34,7 +34,7 @@ export default function AppliedTrainersDetails() {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate("/dashboard/applied-trainers")
+                navigate("/dashboard")
             })
     }
     const {
@@ -54,6 +54,7 @@ export default function AppliedTrainersDetails() {
         }
         const res = await axiosSecure.post("/reject", userInfo)
         console.log(res.data)
+        reset()
         Swal.fire({
             position: "top-end",
             icon: "success",
@@ -61,7 +62,7 @@ export default function AppliedTrainersDetails() {
             showConfirmButton: false,
             timer: 1500
         });
-        reset()
+        navigate("/dashboard")
     }
     return (
         <div>

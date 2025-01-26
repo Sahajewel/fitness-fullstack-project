@@ -4,12 +4,15 @@ import { useForm } from 'react-hook-form'
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure'
 import Swal from 'sweetalert2'
 import { Helmet } from 'react-helmet'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddNewForum() {
-    const axioxSecure = UseAxiosSecure()
+    const axioxSecure = UseAxiosSecure();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm()
 
@@ -27,6 +30,7 @@ export default function AddNewForum() {
         }
         const res = await axioxSecure.post("/add-new-forum", newForum)
         console.log(res.data)
+        reset()
         Swal.fire({
             position: "top-end",
             icon: "success",
@@ -34,7 +38,7 @@ export default function AddNewForum() {
             showConfirmButton: false,
             timer: 1500
         });
-       
+       navigate("/dashboard")
 
     }
     return (

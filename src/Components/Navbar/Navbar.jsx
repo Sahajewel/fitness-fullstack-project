@@ -102,9 +102,11 @@ const Navbar = () => {
             {isMenuOpen && (
                 <div className="md:hidden flex flex-col justify-center items-center bg-gradient-to-r from-purple-600 via-pink-800 to-red-800 m-10 p-6 space-y-4">
                     <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
-                    <NavLink to="/secret" className="text-white text-lg hover:text-yellow-300 transition duration-300">Secret</NavLink>
+                    <NavLink to="/all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink>
+                    <NavLink to="/all-classes" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Classes</NavLink>
                     <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink>
-                    <NavLink to="all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink>
+                    <NavLink to="/community-forum"  className="text-white text-lg hover:text-yellow-300 transition duration-300">Community</NavLink>
+                    
                     {user && user ? <div className='flex justify-center  items-center'>
                         <img className='w-20 rounded-full mr-2' src={user?.photoURL} alt="" />
                         <button onClick={handleLogout} className="text-white text-lg bg-yellow-500 hover:bg-yellow-600 hover:text-white py-2 px-4 rounded-full transition duration-300">Logout</button>
