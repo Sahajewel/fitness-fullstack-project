@@ -4,7 +4,7 @@
 
 This is a modern and responsive fitness center website built with React, Tailwind CSS, and several other technologies to provide a seamless experience for users.
 
-Features
+### Features ###
 
 User Authentication (Firebase Authentication)
 
