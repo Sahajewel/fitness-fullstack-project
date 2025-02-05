@@ -6,39 +6,39 @@ This is a modern and responsive fitness center website built with React, Tailwin
 
 ### Features ###
 
-User Authentication (Firebase Authentication)
+1. User Authentication (Firebase Authentication)
 
-Membership Plans and Payment Integration (Stripe)
+2. Membership Plans and Payment Integration (Stripe)
 
-Trainer Profiles with Booking System
+3. Trainer Profiles with Booking System
 
-Review Carousel for User Feedback
+4. Review Carousel for User Feedback
 
-Activity Log for Trainer Role Applications
+5. Activity Log for Trainer Role Applications
 
-Interactive UI with Lottie Animations
+6. Interactive UI with Lottie Animations
 
-Data Fetching and State Management (TanStack Query)
+7. Data Fetching and State Management (TanStack Query)
 
-Charts and Analytics (Recharts)
+8. Charts and Analytics (Recharts)
 
-Fully Responsive Design
+9. Fully Responsive Design
 
-Tech Stack
+## Tech Stack ##
 
-Frontend: React, Tailwind CSS, Flowbite, Flowbite-React
+1. Frontend: React, Tailwind CSS, Flowbite, Flowbite-React
 
-State Management: React Hook Form, TanStack React Query
+2. State Management: React Hook Form, TanStack React Query
 
-Authentication: Firebase
+3. Authentication: Firebase
 
-Payment: Stripe
+4. Payment: Stripe
 
-UI Components: Swiper, Lottie React, SweetAlert2
+5. UI Components: Swiper, Lottie React, SweetAlert2
 
-Data Handling: Axios, LocalForage
+6. Data Handling: Axios, LocalForage
 
-Routing: React Router DOM
+7. Routing: React Router DOM
 
 
 ## Admin Email- jewelsaha@gmail.com ##
