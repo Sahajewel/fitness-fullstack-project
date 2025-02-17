@@ -110,7 +110,7 @@ export default function AddNewForum() {
                 </div>
 
                 <div className='flex mx-auto justify-center my-4'>
-                    <Button type='submit' color='success'>Add New Forum</Button>
+                    <button className='bg-white text-black hover:brightness-125 transition duration-300 p-3' type='submit' color='success'>Add New Forum</button>
                 </div>
             </form>
         </div>

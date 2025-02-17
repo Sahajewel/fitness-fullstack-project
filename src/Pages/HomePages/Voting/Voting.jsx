@@ -49,7 +49,7 @@ export default function Voting() {
         );
     }
     return (
-        <section className="py-12 bg-gray-100">
+        <section className="py-12 bg-gray-100 md:px-10">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center mb-8">Voting</h2>
                 {/* Login Toggle */}
@@ -57,7 +57,7 @@ export default function Voting() {
                     <Link to="/login">
                         <button
                             onClick={() => setUserLoggedIn(!userLoggedIn)}
-                            className={`px-4 py-2 text-white rounded-lg ${userLoggedIn ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"
+                            className={`px-4 py-2 text-white rounded-lg ${userLoggedIn ? "bg-red-500 hover:bg-red-600" : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 duration-300 transition"
                                 }`}
                         >
                             {userLoggedIn ? "Logout" : "Login"}

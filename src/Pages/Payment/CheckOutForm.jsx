@@ -122,7 +122,7 @@ export default function CheckOutForm({ price, slot, classes,payment }) {
                     }}
                     onChange={handleCardChange} 
                 />
-                <button className=' bg-blue-600 mt-8 px-4 py-2 text-white' type="submit" disabled={!stripe || !clientSecret || !isCardComplete}>
+                <button className=' bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 duration-300 mt-8 px-4 py-2 text-white' type="submit" disabled={!stripe || !clientSecret || !isCardComplete}>
                     Pay
                 </button>
                 <p className='text-red-500 mt-2'>{error}</p>

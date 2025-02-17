@@ -87,31 +87,31 @@ export default function Register() {
                 <form onSubmit={handleSubmit(onSubmit)} className="w-[300px] flex max-w-md flex-col gap-4">
                     <div >
                         <div className="mb-2 block text-white ">
-                            <Label className="text-xl" value="Your Name" />
+                            <Label className="text-xl text-white" value="Your Name" />
                         </div>
                         <TextInput {...register("name", { required: true })} className="" type="text" placeholder="name" required />
                     </div>
                     <div >
                         <div className="mb-2 block text-white ">
-                            <Label className="text-xl" value="photo URL" />
+                            <Label className="text-xl text-white" value="photo URL" />
                         </div>
                         <TextInput {...register("photo", { required: true })} className="" type="text" placeholder="photo url" required />
                     </div>
                     <div >
                         <div className="mb-2 block text-white ">
-                            <Label className="text-xl" value="Your email" />
+                            <Label className="text-xl text-white" value="Your email" />
                         </div>
                         <TextInput {...register("email", { required: true })} className="" type="email" placeholder="email" required />
                     </div>
                     <div>
                         <div className="mb-2 block text-white">
-                            <Label className="text-xl" value="Your password" />
+                            <Label className="text-xl text-white" value="Your password" />
                         </div>
                         <TextInput {...register("password", { required: true })} placeholder="password" type="password" required />
                     </div>
-                    <button className="bg-gray-400 p-3 rounded-xl text-white hover:bg-gray-300">Register</button>
-                    <p className="bg-white p-2">If you already an account please <Link className="text-red-500" to="/login">Login</Link></p>
-                    <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4 text-white">Sign up google</span> <FaGoogle /></button>
+                    <button className="bg-white p-3 rounded-xl text-black hover:brightness-150 duration-300 transition">Register</button>
+                    <p className="bg-white p-2">If you already an account please <Link className="text-red-500 hover:brightness-150 duration-300 transition" to="/login">Login</Link></p>
+                    <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4 text-white hover:brightness-150 duration-300 transition">Sign up google</span> <FaGoogle /></button>
                 </form>
             </div>
         </div>

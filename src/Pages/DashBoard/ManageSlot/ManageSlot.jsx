@@ -23,14 +23,14 @@ export default function ManageSlot() {
                             <Table.Row key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                 <Table.Cell>
                                     {trainer.availableSlots?.map((slot, slotIndex) => (
-                                        <Button key={slotIndex} className="mb-2">
+                                        <Button key={slotIndex} className="mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 duration-300 hover:brightness-125 transition">
                                             {slot}
                                         </Button>
                                     ))}
                                 </Table.Cell>
                                 <Table.Cell className="text-right">
                                     {trainer.availableSlots?.map((slot, slotIndex) => (
-                                        <Button key={slotIndex} className="mb-2">
+                                        <Button  key={slotIndex} className="mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 duration-300 hover:brightness-125 transition">
                                             Delete
                                         </Button>
                                     ))}

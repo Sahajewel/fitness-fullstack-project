@@ -29,7 +29,7 @@ export default function AllTrainersCard({allTrainer}) {
                 </a>
             </div>
             {/* Available Slots */}
-            <h3 className="text-md font-bold text-blue-600 underline mt-4">Available Slots:</h3>
+            <h3 className="text-md font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500  mt-4 text-white p-2">Available Slots:</h3>
             <div className="flex flex-col gap-2 mt-2">
                 {allTrainer.availableSlots.map((slot, index) => (
                     <button
@@ -41,7 +41,7 @@ export default function AllTrainersCard({allTrainer}) {
                 ))}
             </div>
             {/* Know More Button */}
-            <Link to={`/trainer-details/${allTrainer._id}`}><button className="mt-4 w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+            <Link to={`/trainer-details/${allTrainer._id}`}><button className="mt-4 w-full py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-md hover:brightness-125  transition duration-300 ">
                 Know More
             </button></Link>
         </div>

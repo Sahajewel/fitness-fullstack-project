@@ -54,19 +54,19 @@ export default function Register() {
                 <form onSubmit={handleSubmit(onSubmit)} className="w-[300px] flex max-w-md flex-col gap-4">
                     <div >
                         <div className="mb-2 block text-white ">
-                            <Label className="text-xl" value="Your email" />
+                            <Label className="text-xl text-white" value="Your email" />
                         </div>
                         <TextInput {...register("email", { required: true })} className="" type="email" placeholder="email" required />
                     </div>
                     <div>
                         <div className="mb-2 block text-white">
-                            <Label className="text-xl" value="Your password" />
+                            <Label className="text-xl text-white" value="Your password" />
                         </div>
                         <TextInput {...register("password", { required: true })} placeholder="password" type="password" required />
                     </div>
-                    <button className="bg-gray-400 p-3 rounded-xl text-white hover:bg-gray-300">Login</button>
-                    <p className="bg-white p-2">If you don't have  an account please <Link className="text-red-500" to="/register">Register</Link></p>
-                    <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4 text-white">Sign in google</span> <FaGoogle /></button>
+                    <button className="bg-white p-3 rounded-xl text-black hover:brightness-125 duration-300 transition">Login</button>
+                    <p className="bg-white p-2">If you don't have  an account please <Link className="text-red-500 hover:brightness-150 duration-300 transition" to="/register">Register</Link></p>
+                    <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4 text-white hover:brightness-150 duration-300 transition">Sign in google</span> <FaGoogle /></button>
                 </form>
             </div>
         </div>

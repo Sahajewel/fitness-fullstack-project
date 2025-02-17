@@ -185,7 +185,7 @@ navigate("/")
                     />
                 </div>
 
-                <Button type="submit">Apply</Button>
+                <button className="bg-white p-3 duration-300 text-black hover: hover:bg-gray-300" type="submit">Apply</button>
             </form>
         </div>
         // <div>

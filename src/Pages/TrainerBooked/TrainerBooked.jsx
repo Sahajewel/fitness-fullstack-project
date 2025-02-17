@@ -13,7 +13,7 @@ export default function TrainerBooked() {
         <div>
             <h1 className='text-center py-10 text-white text-4xl font-bold'>Trainer Booked</h1>
             <div className="flex flex-col justify-center items-center">
-                <div className="bg-purple-700 p-20 my-10 text-white">
+                <div className="bg-white p-20 my-10 text-black">
                     <h1 className="mb-2"><span className="font-bold">Trainer:</span> <span className="text-xl">{booked.name}</span></h1>
                     <div className="flex flex-col gap-2 mt-4 mb-4">
                         <h1><span className="font-bold">Slot:</span> {slot}</h1>
@@ -83,12 +83,13 @@ export default function TrainerBooked() {
                                 Choose plan
                             </button>
                     } */}
-                    <Button
+                    <button
+                    className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 p-3 duration-300 text-white"
                         color="blue"
                         onClick={() => setPlan({ price: packag.price, name: packag.packageName })} // Example for Basic Plan
                     >
                         Choose Plan
-                    </Button>
+                    </button>
 
 
                 </Card>)}</p>

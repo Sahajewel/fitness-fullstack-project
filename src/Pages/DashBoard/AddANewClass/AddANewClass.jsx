@@ -52,23 +52,23 @@ export default function AddANewClass() {
             <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-lg flex-col justify-center mx-auto gap-4">
                 <div>
                     <div className="mb-2 block">
-                        <Label value="Class Name" />
+                        <Label className='text-white' value="Class Name" />
                     </div>
                     <TextInput {...register('addClass')} type="text" placeholder="Add Class" required />
                 </div>
                 <div>
                     <div className="mb-2 block">
-                        <Label value="Upload Image" />
+                        <Label className='text-white' value="Upload Image" />
                     </div>
                     <FileInput {...register('image')} />
                 </div>
                 <div className="">
                     <div className="mb-2 block">
-                        <Label value="Write Details" />
+                        <Label className='text-white' value="Write Details" />
                     </div>
                     <Textarea {...register('details')} placeholder="Write Details" required rows={4} />
                 </div>
-                <Button type="submit">Submit</Button>
+                <button className='bg-white text-black p-3 hover:brightness-125 duration-300 transition' type="submit">Submit</button>
             </form>
         </div>
     )

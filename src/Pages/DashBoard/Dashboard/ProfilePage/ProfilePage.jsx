@@ -82,12 +82,12 @@ export default function ProfilePage() {
              <title>Dashboard | profile</title>
            </Helmet>
             <h1 className='mb-10 text-white underline font-bold text-4xl'>Profile</h1>
-            <div className='bg-gray-400 p-10'>
-                <h1 className='text-white text-center mb-3'>Name: {user?.displayName}</h1>
+            <div className='bg-white p-10'>
+                <h1 className='text-black text-center mb-3'>Name: {user?.displayName}</h1>
                 <img className='h-40 w-40 rounded-full mb-3' src={user?.photoURL} alt="" />
-                <p className=' text-white mb-3'>Email: {user?.email}</p>
+                <p className=' text-black mb-3'>Email: {user?.email}</p>
                 <div className='w-full  flex justify-center'>
-                    <Button onClick={() => setOpenModal(true)}>Edit Profile</Button>
+                    <button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 hover:brightness-125 duration-300 transition text-white' onClick={() => setOpenModal(true)}>Edit Profile</button>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function ProfilePage() {
                                 />
                             </div>
                             <div className="w-full">
-                                <Button type='submit'>Update Profile</Button>
+                                <button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:brightness-125 duration-300 p-3' type='submit'>Update Profile</button>
                             </div>
                         </div>
                     </form>
