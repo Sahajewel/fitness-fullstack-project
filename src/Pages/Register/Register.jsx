@@ -21,9 +21,9 @@ export default function Register() {
                     image: result?.user?.photoURL
                 }
                 axiosPublic.post("/users", userInfo)
-                .then((res)=>{
-                    console.log(res.data)
-                })
+                    .then((res) => {
+                        console.log(res.data)
+                    })
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -45,72 +45,105 @@ export default function Register() {
         createUser(data.email, data.password)
             .then((result) => {
                 console.log(result.user)
-                updateUserProfile(data.name, data.photo)
-                .then((result)=>{
-                    console.log(result)
-                    const userProfile ={
-                        name: data.name,
-                        email: data.email,
-                        image: data.photo
-                     }
-                     axiosPublic.post("/users", userProfile)
-                     .then((res)=>{
-                        console.log(res.data)
-                        reset()
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "Succefully signup",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                       
-                        
-                     })
-                     navigate(location?.state ? location.state : "/")
-                     
-                })
-               .catch((error)=>{
-                console.log(error)
-               })
-               
-                    
-                   
-                    
-                
+                updateUserProfile(data.name, data.photo, data.phoneNumber, data.address)
+                    .then((result) => {
+                        console.log(result)
+                        const userProfile = {
+                            name: data.name,
+                            email: data.email,
+                            image: data.photo,
+                            phoneNumber: data.phoneNumber,
+                            address: data.address,
+                        }
+                        axiosPublic.post("/users", userProfile)
+                            .then((res) => {
+                                console.log(res.data)
+                                reset()
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Succefully signup",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+
+
+                            })
+                        navigate(location?.state ? location.state : "/")
+
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+
+
+
+
+
             })
     }
     return (
-        <div className="pb-10">
-            <h1 className="text-center pt-10 text-4xl text-white font-bold mb-5">Register</h1>
+        <div className="pb-10 ">
+            <h1 className="text-center pt-36 text-4xl text-white font-bold mb-5">Register</h1>
             <div className="flex justify-center items-center  ">
-                <form onSubmit={handleSubmit(onSubmit)} className="w-[300px] flex max-w-md flex-col gap-4">
-                    <div >
-                        <div className="mb-2 block text-white ">
-                            <Label className="text-xl text-white" value="Your Name" />
+                <form onSubmit={handleSubmit(onSubmit)} className="w-[600px] flex  flex-col gap-4">
+                    <div className="md:flex justify-between  items-center gap-4">
+                        <div className="w-full">
+                            <div className="mb-2 block text-white ">
+                                <Label className="text-xl text-white" value="Your Name" />
+                            </div>
+                            <TextInput {...register("name", { required: true })} className="" type="text" placeholder="name" required />
                         </div>
-                        <TextInput {...register("name", { required: true })} className="" type="text" placeholder="name" required />
+                        <div className="w-full">
+                            <div className="mb-2 block text-white ">
+                                <Label className="text-xl text-white" value="photo URL" />
+                            </div>
+                            <TextInput {...register("photo", { required: true })} className="" type="text" placeholder="photo url" required />
+                        </div>
+
+                    </div >
+                    <div className="md:flex justify-between  items-center gap-4">
+                        <div className="w-full">
+                            <div className="mb-2 block text-white ">
+                                <Label className="text-xl text-white" value="Your email" />
+                            </div>
+                            <TextInput {...register("email", { required: true })} className="" type="email" placeholder="email" required />
+
+                        </div>
+                        <div className="w-full">
+
+                            <div className="mb-2 block text-white">
+                                <Label className="text-xl text-white" value="Your password" />
+                            </div>
+                            <TextInput {...register("password", { required: true })} placeholder="password" type="password" required />
+                        </div>
                     </div>
-                    <div >
-                        <div className="mb-2 block text-white ">
-                            <Label className="text-xl text-white" value="photo URL" />
+                    {/* New Fields for Phone Number and Address */}
+                    <div className="md:flex justify-between  items-center gap-4">
+                        <div className="w-full">
+                            <Label className="text-white text-lg" htmlFor="phoneNumber" value="Phone Number" />
+                            <TextInput
+                                id="phoneNumber"
+                                type="text"
+                                {...register("phoneNumber", { required: true })}
+                                placeholder="Enter your phone number"
+                            />
+                            {errors.phoneNumber && <span>This field is required</span>}
                         </div>
-                        <TextInput {...register("photo", { required: true })} className="" type="text" placeholder="photo url" required />
-                    </div>
-                    <div >
-                        <div className="mb-2 block text-white ">
-                            <Label className="text-xl text-white" value="Your email" />
+
+                        <div className="w-full">
+                            <Label className="text-white text-lg" htmlFor="address" value="Address" />
+                            <TextInput
+                                id="address"
+                                type="text"
+                                {...register("address", { required: true })}
+                                placeholder="Enter your address"
+                            />
+                            {errors.address && <span>This field is required</span>}
                         </div>
-                        <TextInput {...register("email", { required: true })} className="" type="email" placeholder="email" required />
-                    </div>
-                    <div>
-                        <div className="mb-2 block text-white">
-                            <Label className="text-xl text-white" value="Your password" />
-                        </div>
-                        <TextInput {...register("password", { required: true })} placeholder="password" type="password" required />
                     </div>
                     <button className="bg-white p-3 rounded-xl text-black hover:brightness-150 duration-300 transition">Register</button>
-                    <p className="bg-white p-2">If you already an account please <Link className="text-red-500 hover:brightness-150 duration-300 transition" to="/login">Login</Link></p>
+                    <p className="bg-white p-2 text-center">If you already an account please <Link className="text-red-500 hover:brightness-150 duration-300 transition" to="/login">Login</Link></p>
                     <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4 text-white hover:brightness-150 duration-300 transition">Sign up google</span> <FaGoogle /></button>
                 </form>
             </div>

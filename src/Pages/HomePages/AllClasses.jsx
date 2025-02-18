@@ -6,7 +6,7 @@ export default function AllClasses() {
   const [allTrainers] = UseAllTrainers();
   console.log(allTrainers)
   return (
-    <div className='w-11/12 mx-auto md:px-10'>
+    <div className='w-11/12 mx-auto md:px-10 pt-28 pb-20'>
       <Helmet>
         <title>Home | all-classes</title>
       </Helmet>

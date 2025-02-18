@@ -49,9 +49,9 @@ export default function Voting() {
         );
     }
     return (
-        <section className="py-12 bg-gray-100 md:px-10">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-8">Voting</h2>
+        <section className="py-12 bg-gray-100 ">
+            <div className=" mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center mb-8">Voting</h2>
                 {/* Login Toggle */}
                 <div className="flex justify-center mb-6">
                     <Link to="/login">

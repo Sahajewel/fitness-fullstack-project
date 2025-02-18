@@ -24,8 +24,8 @@ const Review = () => {
          ));
    };
    return (
-      <div className="w-full p-4">
-         <h2 className="text-4xl font-bold text-white text-center mb-6">Testimonials</h2>
+      <div className="w-full p-4 -mt-16">
+         <h2 className="text-4xl font-bold text-white text-center underline mb-10">Testimonials</h2>
          {reviews.length > 0 ? (
             <div className="relative">
                <div className="flex gap-4 overflow-hidden">

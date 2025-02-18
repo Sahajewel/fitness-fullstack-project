@@ -35,7 +35,7 @@ const Carousel = () => {
     }, [slides.length]);
 
     return (
-        <div className="relative w-full h-96 overflow-hidden">
+        <div className="relative w-full h-[600px] overflow-hidden pt-30">
             {/* Slides */}
             <div
                 className="flex transition-transform duration-700 ease-in-out"
@@ -44,7 +44,7 @@ const Carousel = () => {
                 {slides.map((slide) => (
                     <div
                         key={slide.id}
-                        className="w-full h-96 flex-shrink-0"
+                        className="w-full h-[600px] flex-shrink-0"
                         style={{
                             backgroundImage: `url(${slide.image})`,
                             backgroundSize: "cover",
@@ -52,9 +52,9 @@ const Carousel = () => {
                         }}
                     >
                         <div className="bg-black bg-opacity-50 text-white flex flex-col items-center justify-center h-full">
-                            <h2 className="text-2xl font-bold p-4">{slide.title}</h2>
-                            <p className="mt-2 p-4">{slide.description}</p>
-                            <Link><button className="btn">Click</button></Link>
+                            <h2 className="lg:text-6xl md:text-4xl text-2xl font-bold p-4">{slide.title}</h2>
+                            <p className="mt-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-lg p-4 mx-10">{slide.description}</p>
+
                         </div>
                     </div>
                 ))}

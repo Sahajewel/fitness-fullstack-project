@@ -7,7 +7,7 @@ export default function AllTrainers() {
     const [allTrainers] = UseAllTrainers();
     const {user} = useContext(AuthContext)
     return (
-        <div className='w-11/12 mx-auto md:px-10'>
+        <div className='w-11/12 mx-auto md:px-10 pt-28 pb-20'>
            <Helmet>
             <title>Home | all-trainers</title>
            </Helmet>

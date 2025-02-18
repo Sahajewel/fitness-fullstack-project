@@ -13,11 +13,13 @@ export default function AuthProvider({children}) {
     setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
   }
-  const updateUserProfile =(name, photo)=>{
+  const updateUserProfile =(name, photo,phoneNumber, address)=>{
     setLoading(true)
     return updateProfile(auth.currentUser,{
       displayName:name,
-      photoURL: photo
+      photoURL: photo,
+      phoneNumber: phoneNumber,
+      address: address
     })
   }
   const google = ()=>{

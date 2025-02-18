@@ -9,7 +9,7 @@ export default function CommunityForum() {
     const axiosPublic = useAxiosPublic();
     const [communityForum] = UseForymCommunity()
     return (
-        <div className='pb-20 w-11/12 mx-auto md:px-10'>
+        <div className='py-28 w-10/12  mx-auto '>
             <Helmet>
                 <title>Home | community</title>
             </Helmet>
@@ -18,7 +18,7 @@ export default function CommunityForum() {
                 {communityForum.map((category, index) => (
                     <div
                         key={index}
-                        className="bg-white shadow-lg rounded-lg p-6 hover:scale-105 transform transition-all duration-300 cursor-pointer"
+                        className="bg-white shadow-lg rounded-lg p-6  transform transition-all duration-300 cursor-pointer"
                     >
 
                         <p className=" text-md mb-3">
@@ -51,9 +51,9 @@ export default function CommunityForum() {
             {/* {
                 <Home></Home>? <CommunityForum></CommunityForum> : <communityForum></communityForum> && <Voting></Voting>
             } */}
-            <div className='mt-20'>
+            {/* <div className='mt-20'>
                 <Voting></Voting>
-            </div>
+            </div> */}
         </div>
     )
 }

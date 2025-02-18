@@ -69,7 +69,7 @@ naviaget("/")
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+                                    className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 transition duration-300 text-white font-medium py-2 px-4 rounded-lg "
                                 >
                                     Send Message
                                 </button>
@@ -92,24 +92,24 @@ naviaget("/")
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold text-gray-800 mb-2">Follow Us</h3>
-                                <div className="flex space-x-4">
+                                <div className="flex space-x-4  justify-center">
                                     <a
                                         href="https://facebook.com"
-                                        className="text-blue-600 hover:text-blue-800 transition"
+                                        className="text-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-150 transition duration-300"
                                         aria-label="Facebook"
                                     >
                                         Facebook
                                     </a>
                                     <a
                                         href="https://twitter.com"
-                                        className="text-blue-500 hover:text-blue-700 transition"
+                                        className="text-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-150 transition duration-300"
                                         aria-label="Twitter"
                                     >
                                         Twitter
                                     </a>
                                     <a
                                         href="https://instagram.com"
-                                        className="text-pink-600 hover:text-pink-800 transition"
+                                        className="text-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-150 transition duration-300"
                                         aria-label="Instagram"
                                     >
                                         Instagram

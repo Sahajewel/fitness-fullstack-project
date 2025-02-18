@@ -86,6 +86,7 @@ export default function ProfilePage() {
                 <h1 className='text-black text-center mb-3'>Name: {user?.displayName}</h1>
                 <img className='h-40 w-40 rounded-full mb-3' src={user?.photoURL} alt="" />
                 <p className=' text-black mb-3'>Email: {user?.email}</p>
+                <p className=' text-black mb-3'>Email: {user?.phoneNumber}</p>
                 <div className='w-full  flex justify-center'>
                     <button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 hover:brightness-125 duration-300 transition text-white' onClick={() => setOpenModal(true)}>Edit Profile</button>
                 </div>
