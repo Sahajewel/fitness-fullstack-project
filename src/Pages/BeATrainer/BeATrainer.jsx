@@ -4,13 +4,13 @@ import become from "../../assets/become.webp"
 export default function BeATrainer() {
     return (
         <div>
-            <h1 className='text-center py-10 text-white text-4xl font-bold underline mt-10'>Be A Trainer</h1>
+            <h1 className='text-center py-10 text-4xl font-bold underline mt-10'>Be A Trainer</h1>
             <div className="md:flex justify-center items-center md:gap-20 py-20">
                 <div>
                     <img className="w-[400px]" src={become} alt="" />
                 </div>
 
-                <div className="mt-8 bg-white text-black p-6 rounded-lg text-center">
+                <div className="mt-8 bg-gray-100 text-black p-6 rounded-lg text-center">
                     <h3 className="text-2xl font-semibold">Want to Become a Trainer?</h3>
                     <p className="mt-4 text-lg">If you're passionate about fitness and want to share your knowledge with others, become a part of our team of trainers!</p>
                     <Link

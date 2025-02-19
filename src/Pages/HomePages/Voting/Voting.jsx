@@ -49,7 +49,7 @@ export default function Voting() {
         );
     }
     return (
-        <section className="py-12 bg-gray-100 ">
+        <section className="py-12 shadow-2xl bg-white text-black dark:bg-gray-900 dark:text-white md:px-10 ">
             <div className=" mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-8">Voting</h2>
                 {/* Login Toggle */}

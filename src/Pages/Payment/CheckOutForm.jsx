@@ -103,7 +103,7 @@ export default function CheckOutForm({ price, slot, classes,payment }) {
 
     }
     return (
-        <div>
+        <div className='bg-white text-black dark:bg-gray-900 dark:text-white md:px-10 md:py-5 shadow-2xl'>
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{

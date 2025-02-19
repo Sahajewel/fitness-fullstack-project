@@ -5,11 +5,11 @@ import Footer from "../../Components/Foooter/Footer";
 
 export default function MainLayout() {
     return (
-        <div>
+        <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
             <div>
                 <Navbar></Navbar>
             </div>
-            <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+            <div className="">
                 <div className="w-11/12 mx-auto min-h-[calc(100vh-447.25px)] ">
                     <Outlet></Outlet>
                 </div>

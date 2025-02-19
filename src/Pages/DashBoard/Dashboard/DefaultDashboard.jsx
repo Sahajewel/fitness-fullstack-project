@@ -7,7 +7,7 @@ export default function DefaultDashboard() {
              <Helmet>
             <title>Dashboard</title>
            </Helmet>
-            <h1 className='text-white text-6xl font-bold text-center underline flex justify-center mb-20'>Dashboard</h1>
+            <h1 className=' text-6xl font-bold text-center underline flex justify-center mb-20'>Dashboard</h1>
             <Player
                 src={defaultLottie}
                 className="player"

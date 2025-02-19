@@ -10,11 +10,11 @@ export default function TrainerBooked() {
     console.log(plan)
     console.log(booked)
     return (
-        <div>
-            <h1 className='text-center py-10 text-white text-4xl font-bold'>Trainer Booked</h1>
+        <div className="bg-white text-black dark:bg-gray-900 dark:text-white w-10/12 mx-auto md:px-10 mb-20 shadow-2xl">
+            <h1 className='text-center py-10 pt-40  text-4xl font-bold underline'>Trainer Booked</h1>
             <div className="flex flex-col justify-center items-center">
-                <div className="bg-white p-20 my-10 text-black">
-                    <h1 className="mb-2"><span className="font-bold">Trainer:</span> <span className="text-xl">{booked.name}</span></h1>
+                <div className=" p-20  border">
+                    <h1 className="mb-2"><span className="font-bold text-lg">Trainer:</span> <span className="text-xl">{booked.name}</span></h1>
                     <div className="flex flex-col gap-2 mt-4 mb-4">
                         <h1><span className="font-bold">Slot:</span> {slot}</h1>
                     </div>
@@ -118,7 +118,7 @@ export default function TrainerBooked() {
 
                 {/* Join Now Button */}
                 <Button
-                    color="gray"
+                    className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 duration-300 transition"
                     onClick={() => {
                         if (!plan.name) {
                             alert('Please select a plan before proceeding!');

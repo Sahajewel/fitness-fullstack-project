@@ -83,20 +83,20 @@ export default function Register() {
             })
     }
     return (
-        <div className="pb-10 ">
-            <h1 className="text-center pt-36 text-4xl text-white font-bold mb-5">Register</h1>
+        <div className="py-10 bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl mb-10">
+            <h1 className="text-center pt-36 text-4xl  font-bold mb-5">Register</h1>
             <div className="flex justify-center items-center  ">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-[600px] flex  flex-col gap-4">
                     <div className="md:flex justify-between  items-center gap-4">
                         <div className="w-full">
-                            <div className="mb-2 block text-white ">
-                                <Label className="text-xl text-white" value="Your Name" />
+                            <div className="mb-2 block  ">
+                                <Label className="text-xl " value="Your Name" />
                             </div>
                             <TextInput {...register("name", { required: true })} className="" type="text" placeholder="name" required />
                         </div>
                         <div className="w-full">
-                            <div className="mb-2 block text-white ">
-                                <Label className="text-xl text-white" value="photo URL" />
+                            <div className="mb-2 block  ">
+                                <Label className="text-xl " value="photo URL" />
                             </div>
                             <TextInput {...register("photo", { required: true })} className="" type="text" placeholder="photo url" required />
                         </div>
@@ -104,16 +104,16 @@ export default function Register() {
                     </div >
                     <div className="md:flex justify-between  items-center gap-4">
                         <div className="w-full">
-                            <div className="mb-2 block text-white ">
-                                <Label className="text-xl text-white" value="Your email" />
+                            <div className="mb-2 block  ">
+                                <Label className="text-xl " value="Your email" />
                             </div>
                             <TextInput {...register("email", { required: true })} className="" type="email" placeholder="email" required />
 
                         </div>
                         <div className="w-full">
 
-                            <div className="mb-2 block text-white">
-                                <Label className="text-xl text-white" value="Your password" />
+                            <div className="mb-2 block ">
+                                <Label className="text-xl " value="Your password" />
                             </div>
                             <TextInput {...register("password", { required: true })} placeholder="password" type="password" required />
                         </div>
@@ -121,7 +121,7 @@ export default function Register() {
                     {/* New Fields for Phone Number and Address */}
                     <div className="md:flex justify-between  items-center gap-4">
                         <div className="w-full">
-                            <Label className="text-white text-lg" htmlFor="phoneNumber" value="Phone Number" />
+                            <Label className=" text-lg" htmlFor="phoneNumber" value="Phone Number" />
                             <TextInput
                                 id="phoneNumber"
                                 type="text"
@@ -132,7 +132,7 @@ export default function Register() {
                         </div>
 
                         <div className="w-full">
-                            <Label className="text-white text-lg" htmlFor="address" value="Address" />
+                            <Label className=" text-lg" htmlFor="address" value="Address" />
                             <TextInput
                                 id="address"
                                 type="text"
@@ -142,9 +142,9 @@ export default function Register() {
                             {errors.address && <span>This field is required</span>}
                         </div>
                     </div>
-                    <button className="bg-white p-3 rounded-xl text-black hover:brightness-150 duration-300 transition">Register</button>
-                    <p className="bg-white p-2 text-center">If you already an account please <Link className="text-red-500 hover:brightness-150 duration-300 transition" to="/login">Login</Link></p>
-                    <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4 text-white hover:brightness-150 duration-300 transition">Sign up google</span> <FaGoogle /></button>
+                    <button className=" p-3 border rounded-xl  hover:brightness-150 duration-300 transition">Register</button>
+                    <p className=" p-2 border text-center">If you already an account please <Link className="text-red-500 hover:brightness-150 duration-300 transition" to="/login">Login</Link></p>
+                    <button onClick={handleGoogle} className="flex justify-center items-center border p-2 "><span className="mr-4  hover:brightness-150 duration-300 transition">Sign up google</span> <FaGoogle /></button>
                 </form>
             </div>
         </div>

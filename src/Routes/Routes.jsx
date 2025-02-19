@@ -132,7 +132,7 @@ export const router = createBrowserRouter([
         },
         {
           path: "/dashboard/balance",
-          element: <AdminRoutes><Balance></Balance></AdminRoutes>
+          element: <Balance></Balance>
         },
         {
           path: "/dashboard/booked-trainer",

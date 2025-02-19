@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import logo from "../../assets/logo.jpg"
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 const Navbar = () => {
     // State to track whether the mobile menu is open or closed
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,23 +34,24 @@ const Navbar = () => {
     }
 
     return (
-        <nav className={` p-4 top-0 left-0  shadow-lg fixed w-full z-10 ${scrolled ? "bg-gradient-to-r from-purple-400 via-pink-500 to-red-400" : "bg-gradient-to-r from-purple-600 via-pink-500 to-red-500"}`}>
+        <nav className={` p-4 top-0 left-0  shadow-lg fixed w-full z-10 ${scrolled ? "bg-white dark:bg-gray-900 text-black dark:text-white shadow-2xl  " : "bg-white dark:bg-gray-900 text-black dark:text-white shadow-2xl"}`}>
             <div className="container mx-auto flex justify-between items-center">
 
-                <div className="text-white text-3xl font-semibold tracking-wide hover:text-gray-200 transition duration-300">
+                <div className=" text-3xl font-semibold tracking-wide ">
                     <a href="/"><img className='w-20 rounded-full h-20' src={logo} alt="This is logo" /></a>
                 </div>
 
                 <div className="hidden md:flex space-x-8">
-                    <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
+                    <NavLink to="/" className=" text-lg ">Home</NavLink>
                    {
-                    user?  <NavLink to="/all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink> : ""
+                    user?  <NavLink to="/all-trainers" className=" text-lg ">All Trainers</NavLink> : ""
                    }
-                    <NavLink to="/all-classes" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Classes</NavLink>
+                    <NavLink to="/all-classes" className=" text-lg">All Classes</NavLink>
                    {
-                    user?  <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink> : ""
+                    user?  <NavLink to="/dashboard" className=" text-lg">Dashboard</NavLink> : ""
                    }
-                    <NavLink to="/community-forum"  className="text-white text-lg hover:text-yellow-300 transition duration-300">Community</NavLink>
+                    <NavLink to="/community-forum"  className=" text-lg ">Community</NavLink>
+                    <DarkModeToggle></DarkModeToggle>
                  
                 </div>
 
@@ -57,13 +59,12 @@ const Navbar = () => {
                 <div className="hidden md:flex space-x-6">
                     {user && user ? <div className='flex justify-center items-center'>
                         <img className='w-20 rounded-full mr-2' src={user?.photoURL} alt="" />
-                        <p>{user?.address}</p>
-                        <button onClick={handleLogout} className="text-black text-lg bg-white  hover:brightness-125     py-2 px-4 rounded-full transition duration-300">Logout</button>
+                        <button onClick={handleLogout} className=" text-lg   hover:brightness-125     py-2 px-4 rounded-full transition duration-300">Logout</button>
                     </div>
                         :
                         <div>
-                             <NavLink to="/login" className="text-black  bg-white  hover:brightness-125 text-lg mr-2  py-2 px-4 rounded-full transition duration-300">Login</NavLink>
-                             <NavLink to="/register" className="text-black text-lg bg-white  hover:brightness-125 py-2 px-4 rounded-full transition duration-300">Register</NavLink>
+                             <NavLink to="/login" className="    hover:brightness-125 text-lg mr-2  py-2 px-4 rounded-full transition duration-300">Login</NavLink>
+                             <NavLink to="/register" className=" text-lg  hover:brightness-125 py-2 px-4 rounded-full transition duration-300">Register</NavLink>
                         </div>
                     }
 
@@ -72,7 +73,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Toggle */}
                 <div className="md:hidden flex items-center">
-                    <button onClick={toggleMenu} className="text-white focus:outline-none">
+                    <button onClick={toggleMenu} className=" focus:outline-none">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -82,26 +83,29 @@ const Navbar = () => {
 
             {/* Mobile Menu - Show when 'isMenuOpen' is true */}
             {isMenuOpen && (
-                <div className="md:hidden flex flex-col justify-center items-center bg-gradient-to-r from-purple-600 via-pink-800 to-red-800 m-10 p-6 space-y-4">
-                    <NavLink to="/" className="text-white text-lg hover:text-yellow-300 transition duration-300">Home</NavLink>
+                <div className="md:hidden flex flex-col justify-center items-center  m-10 p-6 space-y-4">
+                    <NavLink to="/" className=" text-lg ">Home</NavLink>
                   {
-                    user?   <NavLink to="/all-trainers" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Trainers</NavLink> : ""
+                    user?   <NavLink to="/all-trainers" className=" text-lg ">All Trainers</NavLink> : ""
                   }
-                    <NavLink to="/all-classes" className="text-white text-lg hover:text-yellow-300 transition duration-300">All Classes</NavLink>
+                    <NavLink to="/all-classes" className=" text-lg ">All Classes</NavLink>
                     {
-                        user? <NavLink to="/dashboard" className="text-white text-lg hover:text-yellow-300 transition duration-300">Dashboard</NavLink> : ""
+                        user? <NavLink to="/dashboard" className=" text-lg ">Dashboard</NavLink> : ""
                     }
-                    <NavLink to="/community-forum"  className="text-white text-lg hover:text-yellow-300 transition duration-300">Community</NavLink>
-                    
+                    <NavLink to="/community-forum"  className=" text-lg">Community</NavLink>
+                   
                     {user && user ? <div className='flex justify-center  items-center'>
+                        <DarkModeToggle></DarkModeToggle>
+                     
+                    
                         <img className='w-20 rounded-full mr-2' src={user?.photoURL} alt="" />
-                        <p>{user?.address}</p>
-                        <button onClick={handleLogout} className="text-black text-lg bg-white  hover:brightness-125     py-2 px-4 rounded-full transition duration-300">Logout</button>
+                        <p>{user?.role}</p>
+                        <button onClick={handleLogout} className=" text-lg  hover:brightness-125     py-2 px-4 rounded-full transition duration-300">Logout</button>
                     </div>
                         :
                         <div>
-                            <NavLink to="/login" className="text-black  bg-white  hover:brightness-125 text-lg mr-2  py-2 px-4 rounded-full transition duration-300">Login</NavLink>
-                            <NavLink to="/register" className="text-black text-lg bg-white  hover:brightness-125 py-2 px-4 rounded-full transition duration-300">Register</NavLink>
+                            <NavLink to="/login" className="  hover:brightness-125 text-lg mr-2  py-2 px-4 rounded-full transition duration-300">Login</NavLink>
+                            <NavLink to="/register" className=" text-lg   hover:brightness-125 py-2 px-4 rounded-full transition duration-300">Register</NavLink>
                         </div>
                     }
                 </div>

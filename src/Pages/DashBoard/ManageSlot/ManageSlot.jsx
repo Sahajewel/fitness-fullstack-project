@@ -7,11 +7,11 @@ export default function ManageSlot() {
     const [allTrainers] = UseAllTrainers();
 
     return (
-        <div>
+        <div className='shadow-2xl'>
              <Helmet>
              <title>Dashboard | manage-slot</title>
            </Helmet>
-            <h1 className='text-center py-10 underline text-white text-4xl font-bold'>Manage Slots</h1>
+            <h1 className='text-center py-10 underline  text-4xl font-bold'>Manage Slots</h1>
             <div className="overflow-x-auto">
                 <Table>
                     <Table.Head>

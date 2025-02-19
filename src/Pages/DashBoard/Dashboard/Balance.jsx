@@ -26,15 +26,15 @@ export default function Balance() {
         { name: 'Newsletter Subscriber', value: newsLetter.length },
     ];
     return (
-        <div>
+        <div className='shadow-2xl md:px-10 pb-10'>
              <Helmet>
-             <title>Dashboard | balance</title>
+             <title>Dashboard | overview</title>
            </Helmet>
-            <h1 className='text-center py-10 text-white text-4xl font-bold underline'>Total Balance: ${totalPrice}</h1>
+            <h1 className='text-center py-10  text-4xl font-bold underline'>Total Balance: ${totalPrice}</h1>
             <div className='flex justify-center flex-col '>
                 <div className="overflow-x-auto mb-10">
                     <Table>
-                        <Table.Head>
+                        <Table.Head className='bg-white text-black dark:bg-gray-900 dark:text-white'>
                             <Table.HeadCell>#</Table.HeadCell>
                             <Table.HeadCell>User Name</Table.HeadCell>
                             <Table.HeadCell>Email</Table.HeadCell>
@@ -42,8 +42,8 @@ export default function Balance() {
                         </Table.Head>
                         <Table.Body className="divide-y">
                             {
-                                payments.map((payment, index) => <Table.Row key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                payments.map((payment, index) => <Table.Row key={index} className="bg-white text-black dark:bg-gray-900 dark:text-white">
+                                    <Table.Cell className="whitespace-nowrap font-medium ">
                                         {index + 1}
                                     </Table.Cell>
                                     <Table.Cell>{payment.name}</Table.Cell>
@@ -55,7 +55,7 @@ export default function Balance() {
                         </Table.Body>
                     </Table>
                 </div>
-                <div className='bg-white p-10 flex mx-auto'>
+                <div className='shadow-2xl p-10 flex mx-auto bg-white text-black dark:bg-gray-900 dark:text-white'>
                     <BarChart
                         width={500}
                         height={300}
@@ -77,7 +77,7 @@ export default function Balance() {
                         </Bar>
                     </BarChart>
                 </div>
-                <h1 className='text-center text-white text-lg font-bold'>Bar Chart</h1>
+                <h1 className='text-center  text-lg font-bold bg-white text-black dark:bg-gray-900 dark:text-white pb-5'>Bar Chart</h1>
             </div>
         </div>
     )

@@ -89,20 +89,20 @@ navigate("/")
         { value: 'evening', label: 'Evening (4:00 PM - 10:00 PM)' },
     ];
     return (
-        <div>
-            <h1 className='text-center py-10 text-white text-4xl font-bold underline pt-10'>Become A Trainer</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex p-20 flex-col gap-4 mx-auto text-white">
+        <div className=" pt-40 mb-20 shadow-2xl bg-white text-black dark:bg-gray-900 dark:text-white w-10/12 mx-auto md:px-10">
+            <h1 className='text-center py-6  text-4xl font-bold underline pt-10'>Become A Trainer</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex p-20 flex-col gap-4 mx-auto ">
                 {/* name and email */}
                 <div className="md:flex justify-center items-center  gap-5">
                     <div className="w-full">
                         <div className="mb-2 block ">
-                            <Label className="text-white text-lg" value="Full Name" />
+                            <Label className=" text-lg" value="Full Name" />
                         </div>
                         <TextInput {...register('name')} type="text" placeholder="Your full name" required shadow />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label className="text-white text-lg" value="Your Email" />
+                            <Label className=" text-lg" value="Your Email" />
                         </div>
                         <TextInput {...register('email')} readOnly defaultValue={user?.email} id="password2" type="email" required shadow />
                     </div>
@@ -112,13 +112,13 @@ navigate("/")
 
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label className="text-white text-lg" value="Your Age" />
+                            <Label className=" text-lg" value="Your Age" />
                         </div>
-                        <TextInput {...register('age')} type="number" required shadow />
+                        <TextInput placeholder="age" {...register('age')} type="number" required shadow />
                     </div>
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label className="text-white text-lg" value="Upload Image" />
+                            <Label className=" text-lg" value="Upload Image" />
                         </div>
                         <FileInput {...register('image')} />
                     </div>
@@ -127,29 +127,29 @@ navigate("/")
                 <div className="md:flex justify-center items-center  gap-5">
                     <div className="w-full">
                         <div className="mb-2 block">
-                            <Label className="text-white text-lg" value="Skills" />
+                            <Label className=" text-lg" value="Skills" />
                         </div>
                         <div className="flex  gap-2 items-center">
                             <Checkbox {...register("skills")} value='Yoga' />
-                            <Label className="text-white text-lg">Yoga</Label>
+                            <Label className=" text-lg">Yoga</Label>
                             <Checkbox {...register("skills")} value='Meditation' />
-                            <Label className="text-white text-lg">Meditation</Label>
+                            <Label className=" text-lg">Meditation</Label>
                             <Checkbox {...register("skills")} value='Cardio' />
-                            <Label className="text-white text-lg">Cardio</Label>
+                            <Label className=" text-lg">Cardio</Label>
                         </div>
                     </div>
 
                     <div className="w-full">
                         <div className="w-full">
                             <div className="mb-2 block">
-                                <Label className="text-white text-lg" value="Pick Day" />
+                                <Label className=" text-lg" value="Pick Day" />
                             </div>
                             <Controller
                                 name="day"
                                 control={control} // Use control from useForm
                                 render={({ field: { onChange, value } }) => (
                                     <Select
-                                        className="text-black"
+                                       
                                         value={value}
                                         onChange={onChange}
                                         isMulti
@@ -166,14 +166,14 @@ navigate("/")
                 {/* time slot */}
                 <div className="w-full">
                     <div className="mb-2 block">
-                        <Label className="text-white text-lg" value="Pick Time Slots" />
+                        <Label className=" text-lg" value="Pick Time Slots" />
                     </div>
                     <Controller
                         name="time"
                         control={control}
                         render={({ field: { onChange, value } }) => (
                             <Select
-                                className="text-black"
+                                
                                 value={value}
                                 onChange={onChange}
                                 isMulti
@@ -185,7 +185,7 @@ navigate("/")
                     />
                 </div>
 
-                <button className="bg-white p-3 duration-300 text-black hover: hover:bg-gray-300" type="submit">Apply</button>
+                <button className=" p-3 bg-gradient-to-r text-white from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 duration-300 transition" type="submit">Apply</button>
             </form>
         </div>
         // <div>

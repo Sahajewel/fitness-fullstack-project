@@ -44,31 +44,31 @@ export default function AddANewClass() {
                     navigate("/dashboard")
     }
     return (
-        <div>
+        <div className='bg-white text-black dark:bg-gray-900 pb-10 dark:text-white shadow-2xl '>
              <Helmet>
              <title>Dashboard | add-a-new-class</title>
            </Helmet>
-            <h1 className='text-center py-10 text-white text-4xl font-bold underline'>Add A New Class</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-lg flex-col justify-center mx-auto gap-4">
+            <h1 className='text-center py-10  text-4xl font-bold underline'>Add A New Class</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-lg flex-col justify-center mx-auto gap-4 pb-10 shadow-2xl p-6 mb-10">
                 <div>
                     <div className="mb-2 block">
-                        <Label className='text-white' value="Class Name" />
+                        <Label className='' value="Class Name" />
                     </div>
                     <TextInput {...register('addClass')} type="text" placeholder="Add Class" required />
                 </div>
                 <div>
                     <div className="mb-2 block">
-                        <Label className='text-white' value="Upload Image" />
+                        <Label className='' value="Upload Image" />
                     </div>
                     <FileInput {...register('image')} />
                 </div>
                 <div className="">
                     <div className="mb-2 block">
-                        <Label className='text-white' value="Write Details" />
+                        <Label className='' value="Write Details" />
                     </div>
                     <Textarea {...register('details')} placeholder="Write Details" required rows={4} />
                 </div>
-                <button className='bg-white text-black p-3 hover:brightness-125 duration-300 transition' type="submit">Submit</button>
+                <button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 hover:brightness-125 duration-300 transition text-white' type="submit">Submit</button>
             </form>
         </div>
     )

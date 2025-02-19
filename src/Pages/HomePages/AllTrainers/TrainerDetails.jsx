@@ -6,12 +6,12 @@ export default function TrainerDetails() {
     console.log(loader)
     return (
 
-        <div>
-            <h1 className='text-center py-10 text-white text-4xl font-bold'>Trainer Details</h1>
+        <div className="shadow-2xl bg-white text-black dark:bg-gray-900 dark:text-white mx-auto mb-20 w-10/12 md:px-10">
+            <h1 className='text-center py-10  text-4xl font-bold ' >Trainer Info</h1>
             <div className='md:flex justify-center items-center gap-10 p-10'>
                 <div >
 
-                    <h1 className='text-center py-10 text-white text-2xl font-bold'>Trainer Info</h1>
+                    <h1 className='text-center py-10  text-4xl font-bold underline'>Trainer Info</h1>
                     <div>
                         <Card
                             className="max-w-sm"
@@ -33,10 +33,10 @@ export default function TrainerDetails() {
 
                 </div>
                 <div className="md:ml-20">
-                    <h1 className='text-center py-10 text-white text-2xl font-bold'>Available Slots</h1>
+                    <h1 className='text-center py-10  text-2xl font-bold'>Available Slots</h1>
                     <div className="flex flex-col gap-2 mt-2 ">
                         {loader.availableSlots.map((slot, index) => (
-                            <Link key={index} className="px-4 py-2 border border-gray-300 rounded-md hover:brightness-125 duration-300 transition text-sm text-white" to={`/trainer-booked/${loader._id}/${slot}`}>  <button
+                            <Link key={index} className="px-4 py-2 border border-gray-500 rounded-md hover:brightness-125 duration-300 transition text-sm " to={`/trainer-booked/${loader._id}/${slot}`}>  <button
 
 
                             >

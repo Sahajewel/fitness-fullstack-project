@@ -77,16 +77,15 @@ export default function ProfilePage() {
         setEmail('');
     }
     return (
-        <div className='flex flex-col mx-auto items-center justify-center'>
+        <div className='flex flex-col mx-auto items-center justify-center shadow-2xl pb-10'>
              <Helmet>
              <title>Dashboard | profile</title>
            </Helmet>
-            <h1 className='mb-10 text-white underline font-bold text-4xl'>Profile</h1>
-            <div className='bg-white p-10'>
-                <h1 className='text-black text-center mb-3'>Name: {user?.displayName}</h1>
+            <h1 className='mb-10  underline font-bold text-4xl'>Profile</h1>
+            <div className='shadow-2xl p-10 border'>
+                <h1 className=' text-center mb-3'>Name: {user?.displayName}</h1>
                 <img className='h-40 w-40 rounded-full mb-3' src={user?.photoURL} alt="" />
-                <p className=' text-black mb-3'>Email: {user?.email}</p>
-                <p className=' text-black mb-3'>Email: {user?.phoneNumber}</p>
+                <p className='  mb-3'>Email: {user?.email}</p>
                 <div className='w-full  flex justify-center'>
                     <button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 hover:brightness-125 duration-300 transition text-white' onClick={() => setOpenModal(true)}>Edit Profile</button>
                 </div>

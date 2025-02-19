@@ -41,18 +41,19 @@ const Featured = () => {
     ];
 
     return (
-        <section className="pt-24 ">
+        <section className="mt-24 pb-10 shadow-2xl md:px-10 bg-white text-black dark:bg-gray-900 dark:text-white">
+             <h2 className="text-4xl  underline font-bold py-12 mb-12 text-center ">Featured Features</h2>
             <div className="container mx-auto text-center">
-                <h2 className="text-4xl text-white underline font-bold mb-12">Featured Features</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+               
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
                     {features.map((feature, index) => (
-                        <div
+                        <div 
                             key={index}
-                            className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all"
+                            className=" p-6 rounded-lg shadow-md hover:shadow-xl transition-all border "
                         >
                             <div className="text-4xl mb-4">{feature.icon}</div>
                             <h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
-                            <p className="text-gray-600">{feature.description}</p>
+                            <p className="">{feature.description}</p>
                         </div>
                     ))}
                 </div>

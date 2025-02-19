@@ -2,8 +2,8 @@ import about from "../../../../assets/about.jpg"
 
 const AboutUs = () => {
     return (
-        <section className=" py-40">
-             <h2 className="text-4xl text-white underline font-bold mb-12 text-center">About Us</h2>
+        <section className="py-12 md:px-10  bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl mt-32 mb-20">
+             <h2 className="text-4xl  underline font-bold mb-12 text-center">About Us</h2>
             <div className="container mx-auto flex flex-col items-center lg:flex-row lg:space-x-12">
                 <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
                     <img

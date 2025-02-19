@@ -22,11 +22,11 @@ export default function DashboardAllTrainers() {
         }
     }
     return (
-        <div>
+        <div className='bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl md:px-10'>
              <Helmet>
              <title>Dashboard | all-trainers</title>
            </Helmet>
-            <h1 className='text-center py-10 text-white underline text-4xl font-bold'>All Trainers</h1>
+            <h1 className='text-center py-10  underline text-4xl font-bold'>All Trainers</h1>
             <div className="overflow-x-auto">
                 <Table>
                     <Table.Head>
@@ -37,8 +37,8 @@ export default function DashboardAllTrainers() {
                     </Table.Head>
                     <Table.Body className="divide-y">
                         {
-                            allTrainers.map((allTrainer) => <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{allTrainer.name}</Table.Cell>
+                            allTrainers.map((allTrainer) => <Table.Row className="">
+                                <Table.Cell className="whitespace-nowrap font-medium ">{allTrainer.name}</Table.Cell>
                                 <Table.Cell>{allTrainer.expertise.map((exper, ind) => <li key={ind}>{exper}</li>)}</Table.Cell>
                                 <Table.Cell>{allTrainer.details}</Table.Cell>
                                 <Table.Cell ><button onClick={()=>handleDelete(allTrainer._id)}>Delete</button></Table.Cell>

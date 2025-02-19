@@ -7,13 +7,13 @@ import { Helmet } from 'react-helmet'
 export default function AppliedTrainer() {
   const [appliedTrainer] = UseAppliedTrainer()
   return (
-    <div>
+    <div className='bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl md:px-10 md:pb-10'>
        <Helmet>
              <title>Dashboard | applied-trainers</title>
            </Helmet>
-      <h1 className='text-center py-10 text-white text-4xl font-bold underline mt-10'>Applied Trainers:  {appliedTrainer.length}</h1>
+      <h1 className='text-center py-10  text-4xl font-bold underline mt-10'>Applied Trainers:  {appliedTrainer.length}</h1>
       <div className="overflow-x-auto">
-        <Table>
+        <Table className=''>
           <Table.Head>
             <Table.HeadCell>#</Table.HeadCell>
             <Table.HeadCell>Name</Table.HeadCell>
@@ -24,8 +24,8 @@ export default function AppliedTrainer() {
           </Table.Head>
           <Table.Body className="divide-y">
             {
-              appliedTrainer.map((apply, index) => <Table.Row key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{index + 1}</Table.Cell>
+              appliedTrainer.map((apply, index) => <Table.Row key={index} className="bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl">
+                <Table.Cell className="whitespace-nowrap font-medium bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl">{index + 1}</Table.Cell>
                 <Table.Cell>{apply.name}</Table.Cell>
                 <Table.Cell>{apply.email}</Table.Cell>
                 <Table.Cell>

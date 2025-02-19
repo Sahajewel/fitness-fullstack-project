@@ -20,10 +20,10 @@ export default function NewsLetter() {
             console.log({name, email})
     }
     return (
-        <div className="pb-20 bg-white mb-20">
-            <h1 className="text-center text-4xl py-10 font-bold text-black underline">Newsletter</h1>
+        <div className="pb-20 shadow-2xl mb-20 bg-white text-black dark:bg-gray-900 dark:text-white">
+            <h1 className="text-center text-4xl py-10 font-bold  underline">Newsletter</h1>
             <Banner>
-                <div className="flex w-full items-center justify-between border-gray-200  p-4 dark:border-gray-600 dark:bg-gray-700">
+                <div className="flex w-full items-center justify-between border-gray-200  p-4 ">
                     <div className="mx-auto flex w-full shrink-0 items-center sm:w-auto">
                         <form onSubmit={handleNewletter} className="flex w-full flex-col items-center md:flex-row gap-3">
                            

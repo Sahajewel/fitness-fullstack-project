@@ -2,7 +2,7 @@ import logo from "../../assets/logo.jpg"
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white py-8">
+        <footer className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white py-8">
             <div className="container text-center mx-auto px-4">
                 {/* Grid for footer sections */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -21,7 +21,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/"
-                                    className="hover:text-yellow-300 transition duration-300"
+                                    className=" transition duration-300"
                                 >
                                     Home
                                 </a>
@@ -29,7 +29,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/about-us"
-                                    className="hover:text-yellow-300 transition duration-300"
+                                    className=" transition duration-300"
                                 >
                                     About
                                 </a>
@@ -38,7 +38,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/contact"
-                                    className="hover:text-yellow-300 transition duration-300"
+                                    className=" transition duration-300"
                                 >
                                     Contact
                                 </a>
@@ -54,7 +54,7 @@ const Footer = () => {
                                 href="https://facebook.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-yellow-300 transition duration-300"
+                                className=" transition duration-300"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const Footer = () => {
                                 href="https://twitter.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-yellow-300 transition duration-300"
+                                className=" transition duration-300"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ const Footer = () => {
                                 href="https://instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-yellow-300 transition duration-300"
+                                className=" transition duration-300"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="mt-8 text-center text-sm border-t border-gray-200 pt-4">
+                <div className="mt-8 text-center text-sm  border-t pt-4">
                     &copy; {new Date().getFullYear()} Tokyo Fitness Center. All Rights Reserved.
                 </div>
             </div>

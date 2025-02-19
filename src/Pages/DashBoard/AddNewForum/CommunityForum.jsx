@@ -9,41 +9,41 @@ export default function CommunityForum() {
     const axiosPublic = useAxiosPublic();
     const [communityForum] = UseForymCommunity()
     return (
-        <div className='py-28 w-10/12  mx-auto '>
+        <div className='py-28 mt-10 mb-20 w-10/12  mx-auto bg-white text-black dark:bg-gray-900 dark:text-white shadow-2xl md:px-10'>
             <Helmet>
                 <title>Home | community</title>
             </Helmet>
-            <h1 className='text-center py-10  text-4xl font-bold text-white underline'>Community Forum</h1>
-            <div className="flex flex-col gap-10">
+            <h1 className='text-center py-10  text-4xl font-bold  underline'>Community Forum</h1>
+            <div className="flex flex-col gap-10 shadow-2xl space-y-5">
                 {communityForum.map((category, index) => (
                     <div
                         key={index}
-                        className="bg-white shadow-lg rounded-lg p-6  transform transition-all duration-300 cursor-pointer"
+                        className=" shadow-lg rounded-lg p-6  transform transition-all duration-300 cursor-pointer "
                     >
 
                         <p className=" text-md mb-3">
-                            <span className='text-lg font-bold'>Routine:</span>  <span className="font-medium  text-gray-800"> {category.routine}</span>
+                            <span className='text-lg font-bold'>Routine:</span>  <span className="font-medium "> {category.routine}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>Fitness Tips:</span> <span className="font-medium text-gray-800"> {category.fitnessTips}</span>
+                            <span className='text-lg font-bold'>Fitness Tips:</span> <span className="font-medium"> {category.fitnessTips}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>LifeStyle:</span> <span className="font-medium text-gray-800"> {category.lifeStyle}</span>
+                            <span className='text-lg font-bold'>LifeStyle:</span> <span className="font-medium "> {category.lifeStyle}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>WeightLoss:</span>  <span className="font-medium text-gray-800"> {category.weightLoss}</span>
+                            <span className='text-lg font-bold'>WeightLoss:</span>  <span className="font-medium "> {category.weightLoss}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>Cardio:</span>  <span className="font-medium text-gray-800"> {category.cardio}</span>
+                            <span className='text-lg font-bold'>Cardio:</span>  <span className="font-medium "> {category.cardio}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>Yoga:</span> <span className="font-medium text-gray-800"> {category.yoga}</span>
+                            <span className='text-lg font-bold'>Yoga:</span> <span className="font-medium "> {category.yoga}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>Nutrition:</span> <span className="font-medium text-gray-800"> {category.nutrition}</span>
+                            <span className='text-lg font-bold'>Nutrition:</span> <span className="font-medium "> {category.nutrition}</span>
                         </p>
                         <p className="text-md mb-3">
-                            <span className='text-lg font-bold'>Healthy Recipes:</span>  <span className="font-medium text-gray-800"> {category.healthyRecipes}</span>
+                            <span className='text-lg font-bold'>Healthy Recipes:</span>  <span className="font-medium "> {category.healthyRecipes}</span>
                         </p>
                     </div>
                 ))}

@@ -44,20 +44,20 @@ export default function Payment() {
    
 }
     return (
-        <div className='pb-20'>
-            <h1 className='text-center py-10 text-white text-4xl font-bold'>Payment Details</h1>
+        <div className='pb-20 w-10/12 mx-auto shadow-2xl'>
+            <h1 className='text-center py-10  text-4xl font-bold  pt-40 underline'>Payment Details</h1>
             <div className='py-10'>
                 <Card className="max-w-sm flex justify-center mx-auto">
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="text-2xl font-bold tracking-tight ">
                         Trainer: {payment.name}
                     </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                    <p className="font-normal ">
 
                     </p>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                    <p className="font-normal ">
                         Name: {user?.displayName}
                     </p>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                    <p className="font-normal">
                         Email: {user?.email}
                     </p>
                     <p>Price: ${price}</p>
@@ -66,7 +66,7 @@ export default function Payment() {
                      
                 </Card>
             </div>
-            <div className='bg-white mx-auto  p-20 '>
+            <div className=' mx-auto  p-20 '>
                 <StripePayment price={price} slot={slot} classes={classes} trainer={payment.name} payment={payment}></StripePayment>
             </div>
            

@@ -26,12 +26,12 @@ export default function ActivityLog() {
     })
 
     return (
-        <div>
-            <h1 className='text-center py-10 text-white  text-4xl font-bold underline'>activity Log</h1>
-            <div className='md:flex justify-center gap-20 my-10 bg-white p-10 '>
+        <div className='shadow-2xl'>
+            <h1 className='text-center py-10   text-4xl font-bold underline'>Activity Log</h1>
+            <div className='md:flex justify-center gap-20 my-10 p-10 '>
                 <h1 className='text-blck text-xl'>Name: {user?.displayName}</h1>
-                <h1 className='text-black text-xl'>Email: {user?.email}</h1>
-                <button className='text-black text-xl'></button>
+                <h1 className=' text-xl'>Email: {user?.email}</h1>
+                <button className=' text-xl'></button>
                 <button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 duration-300 transition p-3' onClick={() => setOpenModal(true)}><FaEye className='text-white'></FaEye></button>
                 <Modal show={openModal} size="md" onClose={onCloseModal} popup>
                     <Modal.Header />
