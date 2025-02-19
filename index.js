@@ -89,6 +89,8 @@ async function run() {
       const result = await userCollection.find().toArray();
       res.send(result)
     })
+    
+
     app.patch("/users/trainer/:id", async(req, res)=>{
       const id = req.params.id;
       const user = req.body;
@@ -139,7 +141,9 @@ async function run() {
       const updteDoc = {                   
         $set: {
          name: user?.name,
-         image: user?.image
+         image: user?.image,
+         phoneNumber: user?.phoneNumber,
+         address: user?.address
         },
       };
       console.log(updteDoc, "update document")
@@ -327,6 +331,12 @@ app.get("/histo", async (req, res)=>{
     app.post("/reject", async (req, res)=>{
       const reject = req.body;
       const result = await rejectCollection.insertOne(reject);
+      res.send(result)
+    })
+    app.get("/reject", async(req, res)=>{
+      // const email = req.query.email;
+      // const cursor = {email: email}
+      const result = await rejectCollection.find().toArray();
       res.send(result)
     })
     // Connect the client to the server	(optional starting in v4.7)
