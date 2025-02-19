@@ -89,7 +89,7 @@ navigate("/")
         { value: 'evening', label: 'Evening (4:00 PM - 10:00 PM)' },
     ];
     return (
-        <div className=" pt-40 mb-20 shadow-2xl bg-white text-black dark:bg-gray-900 dark:text-white w-10/12 mx-auto md:px-10">
+        <div className="mb-20 pt-40 shadow-2xl bg-white text-black dark:bg-gray-900 dark:text-white w-10/12 mx-auto md:px-10">
             <h1 className='text-center py-6  text-4xl font-bold underline pt-10'>Become A Trainer</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex p-20 flex-col gap-4 mx-auto ">
                 {/* name and email */}
@@ -149,7 +149,7 @@ navigate("/")
                                 control={control} // Use control from useForm
                                 render={({ field: { onChange, value } }) => (
                                     <Select
-                                       
+                                       className=" text-red-400"
                                         value={value}
                                         onChange={onChange}
                                         isMulti
@@ -173,7 +173,7 @@ navigate("/")
                         control={control}
                         render={({ field: { onChange, value } }) => (
                             <Select
-                                
+                                className="text-red-400"
                                 value={value}
                                 onChange={onChange}
                                 isMulti

@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import UseAllTrainers from "../../Hooks/UseAllTrainers";
 
 export default function AllClasses() {
   const [allTrainers] = UseAllTrainers();
-  const [sortedTrainers, setSortedTrainers] = useState(allTrainers);
+  const [sortedTrainers, setSortedTrainers] = useState([]);
   const [isAscending, setIsAscending] = useState(true);
+
+  // Load trainers when component mounts
+  useEffect(() => {
+    if (allTrainers.length > 0) {
+      setSortedTrainers([...allTrainers]); // Store the original trainers list
+    }
+  }, [allTrainers]); // Runs when allTrainers data updates
 
   // Sorting function
   const handleSort = () => {
     const sorted = [...sortedTrainers].sort((a, b) => {
-      // Sorting based on the first class name of each trainer
       const classA = a.trainerClasses[0]?.className || "";
       const classB = b.trainerClasses[0]?.className || "";
 
@@ -28,7 +34,7 @@ export default function AllClasses() {
       <Helmet>
         <title>Home | All Classes</title>
       </Helmet>
-      
+
       <h1 className="text-center underline text-4xl font-bold mb-8 py-10">
         All Classes
       </h1>
@@ -37,7 +43,7 @@ export default function AllClasses() {
       <div className="flex justify-center mb-6">
         <button
           onClick={handleSort}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+          className="px-4 py-2 text-white bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-125 duration-300 transition"
         >
           Sort by Class Name ({isAscending ? "Ascending" : "Descending"})
         </button>

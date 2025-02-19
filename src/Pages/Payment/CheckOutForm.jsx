@@ -6,6 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import UseAxiosSecure from '../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 export default function CheckOutForm({ price, slot, classes,payment }) {
     console.log(payment)
@@ -17,7 +18,8 @@ export default function CheckOutForm({ price, slot, classes,payment }) {
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState("");
     const [isCardComplete, setIsCardComplete] = useState(false);
-    const axiosSecure = UseAxiosSecure()
+    const axiosSecure = UseAxiosSecure();
+    const axiosPublic= useAxiosPublic()
     const [payments] = UsePayment()
     console.log(payments)
     const totalPrice = payments.reduce((prev, current) => prev + current.price, 0)
@@ -34,7 +36,7 @@ export default function CheckOutForm({ price, slot, classes,payment }) {
 
     useEffect(() => {
         if (totalPrice > 0) {
-            axiosSecure.post("/create-checkout-session", { price: price })
+            axiosPublic.post("/create-checkout-session", { price: price })
                 .then((res) => {
                     console.log(res.data.clientSecret);
                     setClientSecret(res.data.clientSecret);
