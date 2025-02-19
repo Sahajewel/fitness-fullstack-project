@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout/MainLayout";
 import Error from "../Pages/ErrorPages/Error";
 import Home from "../Pages/HomePages/Home/Home";
@@ -29,122 +29,133 @@ import DefaultDashboard from "../Pages/DashBoard/Dashboard/DefaultDashboard";
 import ActivityLog from "../Pages/DashBoard/ActivityLog/ActivityLog";
 import AboutUs from "../Pages/HomePages/Home/AboutUs/AboutUs";
 import Contact from "../Pages/HomePages/Contact/Contact";
+import SingleTrainer from "../Pages/HomePages/AllTrainers/SingleTrainer";
+import TeamSection from "../Pages/HomePages/TeamSection/TeamSection";
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      errorElement: <Error></Error>,
-      children:[
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        {
-          path: "/register",
-          element: <Register></Register>
-        },
-        {
-          path: "/login",
-          element: <Login></Login>
-        }, 
-        {
-          path: "/all-trainers",
-          element: <AllTrainers></AllTrainers>
-        },
-        {
-          path: "/trainer-details/:id",
-          element: <TrainerDetails></TrainerDetails>,
-          loader: ({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
-        },
-        {
-          path: "/trainer-booked/:id/:slot",
-          element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>,
-          loader: ({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
-        },
-        {
-          path: "/payment/:id/:price/:name/:slot",
-          element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-          loader: ({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
-        },
-        {
-          path: "/become-a-trainer",
-          element:<PrivateRoute> <BecomeATrainer></BecomeATrainer></PrivateRoute>
-        },
-        {
-          path: "/all-classes",
-          element: <Classes></Classes>
-        },
-        {
-          path: "/community-forum",
-          element: <CommunityForum></CommunityForum>
-        },
-        {
-          path: "/about-us",
-          element: <AboutUs></AboutUs>
-        },
-        {
-          path: "/contact",
-          element: <Contact></Contact>
-        }
-      ]
-    },
-    {
-      path: "/dashboard",
-      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-      children:[
-        {
-          path: "",
-          element: <DefaultDashboard></DefaultDashboard>
-        },
-        {
-          path: "/dashboard/all-newsletter-subscriber",
-          element: <AdminRoutes><AllNewsLettersSubscriber></AllNewsLettersSubscriber></AdminRoutes>
-        },
-        {
-          path: "/dashboard/all-trainers",
-          element: <AdminRoutes><DashboardAllTrainers></DashboardAllTrainers></AdminRoutes>
-        },
-        {
-          path: "/dashboard/applied-trainers",
-          element: <AdminRoutes><AppliedTrainer></AppliedTrainer></AdminRoutes>
-        }, 
-        {
-          path: "/dashboard/applied-trainers-details/:id",
-          element: <AdminRoutes><AppliedTrainersDetails></AppliedTrainersDetails></AdminRoutes>,
-          loader:({params})=>fetch(`https://assignment-12-server-black-kappa.vercel.app/become-a-trainer/${params.id}`),
-         
-        }, 
-        {
-          path: "add-a-new-class",
-          element: <AdminRoutes><AddANewClass></AddANewClass></AdminRoutes>
-        },
-        {
-          path: "/dashboard/manage-slot",
-          element: <TrainerRoutes><ManageSlot></ManageSlot></TrainerRoutes>
-        }, 
-        {
-          path: "/dashboard/profile",
-          element: <ProfilePage></ProfilePage>
-        },
-        {
-          path: "/dashboard/add-new-forum",
-          element: <AddNewForum></AddNewForum>
-        },
-        {
-          path: "/dashboard/balance",
-          element: <Balance></Balance>
-        },
-        {
-          path: "/dashboard/booked-trainer",
-          element: <BookedTrainer></BookedTrainer>
-        },
-        {
-          path: "/dashboard/activity-log",
-          element: <ActivityLog></ActivityLog>,
-        }
-      ]
-    }
-    ,
-   
-  ]);
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/all-trainers",
+        element: <AllTrainers></AllTrainers>
+      },
+      {
+        path: "/trainer-details/:id",
+        element: <TrainerDetails></TrainerDetails>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
+      },
+      {
+        path: "/team-trainers",
+        element: <TeamSection></TeamSection>
+      },
+      {
+        path: "/single-trainer/:id",
+        element: <SingleTrainer></SingleTrainer>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
+      },
+      {
+        path: "/trainer-booked/:id/:slot",
+        element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
+      },
+      {
+        path: "/payment/:id/:price/:name/:slot",
+        element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-black-kappa.vercel.app/all-trainers/${params.id}`)
+      },
+      {
+        path: "/become-a-trainer",
+        element: <PrivateRoute> <BecomeATrainer></BecomeATrainer></PrivateRoute>
+      },
+      {
+        path: "/all-classes",
+        element: <Classes></Classes>
+      },
+      {
+        path: "/community-forum",
+        element: <CommunityForum></CommunityForum>
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
+      }
+    ]
+  },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: "",
+        element: <DefaultDashboard></DefaultDashboard>
+      },
+      {
+        path: "/dashboard/all-newsletter-subscriber",
+        element: <AdminRoutes><AllNewsLettersSubscriber></AllNewsLettersSubscriber></AdminRoutes>
+      },
+      {
+        path: "/dashboard/all-trainers",
+        element: <AdminRoutes><DashboardAllTrainers></DashboardAllTrainers></AdminRoutes>
+      },
+      {
+        path: "/dashboard/applied-trainers",
+        element: <AdminRoutes><AppliedTrainer></AppliedTrainer></AdminRoutes>
+      },
+      {
+        path: "/dashboard/applied-trainers-details/:id",
+        element: <AdminRoutes><AppliedTrainersDetails></AppliedTrainersDetails></AdminRoutes>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-black-kappa.vercel.app/become-a-trainer/${params.id}`),
+
+      },
+      {
+        path: "add-a-new-class",
+        element: <AdminRoutes><AddANewClass></AddANewClass></AdminRoutes>
+      },
+      {
+        path: "/dashboard/manage-slot",
+        element: <TrainerRoutes><ManageSlot></ManageSlot></TrainerRoutes>
+      },
+      {
+        path: "/dashboard/profile",
+        element: <ProfilePage></ProfilePage>
+      },
+      {
+        path: "/dashboard/add-new-forum",
+        element: <AddNewForum></AddNewForum>
+      },
+      {
+        path: "/dashboard/balance",
+        element: <Balance></Balance>
+      },
+      {
+        path: "/dashboard/booked-trainer",
+        element: <BookedTrainer></BookedTrainer>
+      },
+      {
+        path: "/dashboard/activity-log",
+        element: <ActivityLog></ActivityLog>,
+      }
+    ]
+  }
+  ,
+
+]);
 

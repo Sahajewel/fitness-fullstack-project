@@ -12,9 +12,9 @@ const ServicesSection = () => {
                     Explore our wide range of services designed to help you achieve your fitness goals.
                 </p>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 ">
                     {/* Personal Training */}
-                    <div className=" p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                    <div className="border p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
                         <img
                             src={ser1}
                             alt="Personal Training"
@@ -27,7 +27,7 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Group Classes */}
-                    <div className=" p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                    <div className=" p-6 border rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
                         <img
                             src={ser1}
                             alt="Group Classes"
@@ -40,7 +40,7 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Wellness Programs */}
-                    <div className=" p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                    <div className=" p-6 border rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
                         <img
                             src={ser3}
                             alt="Wellness Programs"
