@@ -11,13 +11,13 @@ const Carousel = () => {
         },
         {
             id: 2,
-            image: "https://i.ibb.co/ThRKmYY/DALL-E-2025-01-13-23-41-42-A-modern-and-dynamic-fitness-center-banner-with-people-working-out-showin.webp",
+            image: "https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=1082&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title: "Strength and Endurance Awaits",
             description: "Push your limits with our expert trainers and state-of-the-art equipment. Build strength, endurance, and confidence with every session.",
         },
         {
             id: 3,
-            image: "https://i.ibb.co/Sm0yY4L/DALL-E-2025-01-13-23-42-46-A-vibrant-fitness-center-banner-showcasing-a-group-of-people-participatin.webp",
+            image: "https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title: "Achieve Your Best Self",
             description: "Whether you’re a beginner or a pro, our fitness center is the perfect place to challenge yourself, grow stronger, and become the best version of you",
         },
