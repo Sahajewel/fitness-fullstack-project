@@ -7,7 +7,7 @@ const stripe = require("stripe")(process.env.STRIPE_AOI_KEY)
 const app = express()
 const port = process.env.PORT || 5001;
 app.use(cors({
-  origin: ["http://localhost:5173", "https://clever-entremet-18d091.netlify.app"]
+  origin: ["http://localhost:5173", "https://clever-entremet-18d091.netlify.app","https://fitness-center-six.vercel.app"]
 }));
 app.use(express.json());
 

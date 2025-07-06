@@ -5,7 +5,7 @@ const Carousel = () => {
     const slides = [
         {
             id: 1,
-            image: "https://i.ibb.co/ZJKkH5T/DALL-E-2025-01-13-23-34-44-A-dynamic-fitness-center-with-people-working-out-lifting-weights-and-exer.webp",
+            image: "https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title: "Transform Your Fitness Journey",
             description: "Step into a world of fitness where every workout brings you closer to your goals. Experience personalized training, motivating classes, and the support you need to succeed."
         },
