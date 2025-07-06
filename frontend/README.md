@@ -43,5 +43,5 @@ This is a modern and responsive fitness center website built with React, Tailwin
 
 ## Admin Email- jewelsaha@gmail.com ##
 ## Admin Password- 123456 ##
-## Live site link =  https://clever-entremet-18d091.netlify.app ##
+## Live site link =  https://fitness-center-six.vercel.app/ ##
 
